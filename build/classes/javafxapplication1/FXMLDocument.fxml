@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" style="-fx-background-color: #770000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
+        <Button fx:id="button_displayA1" layoutX="86.0" layoutY="61.0" onAction="#handleFirstButtonAction" text="Display Assignment 1" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Button fx:id="button_singlePlayer" layoutX="111.0" layoutY="98.0" mnemonicParsing="false" onAction="#handleSecondButtonAction" text="Single Player" />
+      <Button fx:id="button_multiPlayer" layoutX="115.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleThirdButtonAction" text="Multi Player" />
+      <Label layoutX="4.0" layoutY="178.0" prefHeight="17.0" prefWidth="127.0" text="Name: Nikita Batra" textFill="WHITE" />
+      <Label layoutX="232.0" layoutY="178.0" text="ID: 20155667" textFill="WHITE" />
+      <Label layoutX="59.0" layoutY="14.0" text="World of Warcraft" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

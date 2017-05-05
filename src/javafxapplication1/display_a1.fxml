@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.SampleController">
+    <children>
+      <Label layoutX="14.0" layoutY="14.0" text="World of Warcraft: Assignment 1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="hq1" fitHeight="90.0" fitWidth="113.0" layoutX="13.0" layoutY="251.0" preserveRatio="true" AnchorPane.bottomAnchor="359.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="897.0" AnchorPane.topAnchor="251.0">
+         <image>
+            <Image url="@../castle_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hq2" fitHeight="90.0" fitWidth="90.0" layoutX="831.0" layoutY="250.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city1" fitHeight="93.0" fitWidth="78.0" layoutX="167.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city2" fitHeight="93.0" fitWidth="78.0" layoutX="298.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city3" fitHeight="93.0" fitWidth="78.0" layoutX="433.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city4" fitHeight="93.0" fitWidth="78.0" layoutX="563.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city5" fitHeight="93.0" fitWidth="78.0" layoutX="704.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="327.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0" text="Time: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+<!--      <Button layoutX="14.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleStartGameA1" prefHeight="27.0" prefWidth="98.0" text="Start Game" />-->
+      <ImageView fx:id="hq1Flag" fitHeight="53.0" fitWidth="48.0" layoutX="42.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image></ImageView>
+      <Button fx:id="startGame" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleStartGameA1" text="Start Game" />
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="26.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="799.0" AnchorPane.topAnchor="446.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../dragon_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../ninja_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../iceman_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../lion_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blueWolf" fitHeight="60.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../wolf_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@bluePossible" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="252.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../dragon_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../ninja_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../iceman_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../lion_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../wolf_red.png%1F.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@redPossible" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="496.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imageView" />
+         </image>
+      </ImageView>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="614.0" layoutY="438.0" prefHeight="135.0" prefWidth="290.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="48.0" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="45.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="103.21875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Party" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="CENTER" wrappingWidth="105.21875" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kill" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+      <Label fx:id="displayTime" layoutX="381.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="hq2Flag" fitHeight="53.0" fitWidth="48.0" layoutX="855.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
