@@ -6,6 +6,8 @@
 package javafxapplication1;
 
 
+import World.World;
+import static World.World.timeCount;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Optional;
@@ -36,27 +38,16 @@ public class JavaFXApplication1 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        Pane p = fxmlLoader.load(getClass().getResource("foo.fxml").openStream());
-//        FXMLDocumentController dc = (FXMLDocumentController) fxmlLoader.getController();
-
-        //FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-//        Parent root = loader.load();
-//        myControllerHandle = (FXMLDocumentController)loader.getController();
-
-        
-        //Pane p = fxmlLoader.load(getClass().getResource("FXMLDocument.fxml").openStream());
-        //FXMLDocumentController fooController = (FXMLDocumentController) fxmlLoader.getController();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(getClass().getResource("FXMLDocument.fxml").openStream());
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        
+        
     }
-
-
-
+    
     /**
      * @param args the command line arguments
      */

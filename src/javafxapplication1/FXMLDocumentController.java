@@ -113,15 +113,15 @@ public class FXMLDocumentController implements Initializable {
           }
 //});
 }
- 
-    @FXML
-    private void handleStartGameA1(ActionEvent event) throws InterruptedException{ // When startgame is selected
-        System.out.println("Game has been started!");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_a1.fxml"));
-        
-        World w = new World();
-        w.runGame();
-    }
+// 
+//    @FXML
+//    private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
+//        System.out.println("Game has been started!");
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_a1.fxml"));
+//        
+//        World w = new World();
+//        w.runGame();
+//    }
     
     @FXML
     private void handleInputParametersOption1(ActionEvent event) { // input page

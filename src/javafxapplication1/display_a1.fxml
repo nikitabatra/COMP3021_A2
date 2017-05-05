@@ -209,7 +209,7 @@
             </Text>
          </children>
       </GridPane>
-      <Label fx:id="displayTime" layoutX="381.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0">
+      <Label id="displayTime" fx:id="displayTime" layoutX="381.0" layoutY="125.0" prefHeight="23.0" prefWidth="301.0">
          <font>
             <Font size="18.0" />
          </font>

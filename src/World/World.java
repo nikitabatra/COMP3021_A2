@@ -3,16 +3,27 @@ package World;
 import java.util.ArrayList;
 
 import Warriors.Warrior;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafxapplication1.FXMLDocumentController;
+import javafxapplication1.SampleController;
+import javafx.application.Application;
+import javafxapplication1.JavaFXApplication1;
 
 public class World {
 	public static Clock WorldClock;
 	//Cities start from Red Headquarters and end with Blue Headquarters
 	public static ArrayList<City> CityList;
-        public static int timeCount = 0;
+        public static String timeCount = "";
+        
+        public static void main(String[] args) {
+            Application.launch(JavaFXApplication1.class, args);
+    }
 	
 	public World(){
 		
@@ -35,7 +46,7 @@ public class World {
 	
 	}
 	
-        public void runGame() throws InterruptedException{
+        public void runGame() throws InterruptedException, IOException{
 		for (int minute=0; minute<=WorldProperty.MaxMinutes/10; minute++){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
@@ -92,11 +103,24 @@ public class World {
                                 
 				headquartersReportLifeElements();	
 			}
-//                        Label displayTime = new Label();
-//                        displayTime.setText(WorldClock.getTime());
-//                        FXMLDocumentController dc = new FXMLDocumentController();
-//                        dc.updatePage("hello");
+                        timeCount = WorldClock.getTime();
 			WorldClock.increase();
+//                        FXMLLoader fxmlLoader = new FXMLLoader();
+//                        fxmlLoader.setLocation(getClass().getResource("display_a1.fxml"));
+//                        SampleController sc;
+//                        sc.getSampleController();
+//                        fxmlLoader.setController(sc);
+//                        SampleController sc = (SampleController) fxmlLoader.getController();
+//                        sc.updatePage("NCWEHBVJHERBVJKHERBVHKERBKVEHJRBVEJKRBVHJ");
+                        //sc.updatePage(WorldClock.getTime());
+                        
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        SampleController sc = new SampleController();
+                        fxmlLoader.setController(sc);
+                        fxmlLoader.setLocation(getClass().getResource("display_a1.fxml"));
+                        //sc.updatePage("NCWEHBVJHERBVJKHERBVHKERBKVEHJRBVEJKRBVHJ");
+                        //Parent root = fxmlLoader.load();
+                        //sc.updatePage(WorldClock.getTime());
 		}
 	}
         
