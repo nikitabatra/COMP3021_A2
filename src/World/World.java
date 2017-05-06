@@ -56,11 +56,18 @@ public class World {
                          
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
-                                //Thread.sleep(500);
                                 worldController.updatePage(currentTime);
-
-				((Headquarters)CityList.get(0)).tryToProduceWarrior();
+                                worldController.startGameDisplay();
+                                
+                                ((Headquarters)CityList.get(0)).tryToProduceWarrior();
 				((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).tryToProduceWarrior();
+                                
+                                int blueWarriorType = ((Headquarters)CityList.get(0)).whichBlueWarrior;
+                                int redWarriorType = ((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).whichRedWarrior;
+                                boolean blueSuccess = ((Headquarters)CityList.get(0)).blueProductionSuccess;
+                                boolean redSuccess = ((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).redProductionSuccess;			
+                                
+                                worldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){

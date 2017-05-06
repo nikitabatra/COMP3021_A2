@@ -5,6 +5,7 @@
  */
 package javafxapplication1;
 
+import Warriors.WarriorType;
 import World.Headquarters;
 import World.World;
 import static World.World.CityList;
@@ -39,9 +40,24 @@ public class SampleController implements Initializable {
         return this;
     }
 
-    @FXML private ImageView hq1Flag;
-    @FXML private ImageView hq2Flag;
+    @FXML ImageView hq1;
+    @FXML ImageView hq2;
+    @FXML ImageView city1;
+    @FXML ImageView city2;
+    @FXML ImageView city3;
+    @FXML ImageView city4;
+    @FXML ImageView city5;
+    @FXML ImageView hq1Flag;
+    @FXML ImageView hq2Flag;
+    @FXML ImageView city1Flag;
+    @FXML ImageView city2Flag;
+    @FXML ImageView city3Flag;
+    @FXML ImageView city4Flag;
+    @FXML ImageView city5Flag;
+    
     @FXML private Label displayTime;
+    @FXML private Label produceBlue;
+    @FXML private Label produceRed;
     
     
     @FXML private Image image_hq1Flag = new Image("flag_blue.png");
@@ -51,12 +67,23 @@ public class SampleController implements Initializable {
     public void updatePage(String data){
         displayTime.setText(data);
         System.out.println("Entered update page"); 
-        
+    }
+    
+    @FXML
+    public void startGameDisplay(){
+        hq1Flag.setImage(image_hq1Flag);
+        hq2Flag.setImage(image_hq2Flag);
+    }
+    
+    @FXML
+    public void updateProduceWarriors(int blueType, int redType, boolean blueSuccess, boolean redSuccess){
+        produceBlue.setText(WarriorType.WarriorNames[blueType]);
+        produceRed.setText(WarriorType.WarriorNames[redType]);   
     }
     
     @FXML
     private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
-        displayTime.setText("We will have the time here");
+        displayTime.setText("Game End");
         
         if(WorldObject.checkOccupied == true){
             System.out.println("Game has been ended!");
@@ -74,7 +101,5 @@ public class SampleController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hq1Flag.setImage(image_hq1Flag);
-        hq2Flag.setImage(image_hq2Flag);
     }
 }

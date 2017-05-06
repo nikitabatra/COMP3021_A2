@@ -111,13 +111,39 @@ public class Headquarters extends City{
 	//ICEMAN = 2;
 	//LION = 3;
 	//WOLF = 4;
+        public static int whichBlueWarrior;
+        public static int whichRedWarrior;
+        public static boolean blueProductionSuccess = false;
+        public static boolean redProductionSuccess = false;
+        
 	public boolean tryToProduceWarrior(){
 		int warriorType = ProductionOrder[WarriorIndex];
+                
+                if(this.getParty() == WorldProperty.RED){
+                    whichRedWarrior = warriorType;
+                }
+                if(this.getParty() == WorldProperty.BLUE){
+                    whichBlueWarrior = warriorType;
+                }
+                
 		int HPValue = WarriorType.HP_LIST[warriorType];
 		if (this.LifeElement >= HPValue){
 			LifeElement -= HPValue;
+                        if(this.getParty() == WorldProperty.RED){
+                            redProductionSuccess = true;
+                        }
+                        if(this.getParty() == WorldProperty.BLUE){
+                            blueProductionSuccess = true;
+                        }
 			return produceWarrior(warriorType);
+                        
 		} else {
+                        if(this.getParty() == WorldProperty.RED){
+                            redProductionSuccess = false;
+                        }       
+                        if(this.getParty() == WorldProperty.BLUE){
+                            blueProductionSuccess = false;
+                        }
 //			System.out.println("Not enought Life Element");
 			return false;
 		}

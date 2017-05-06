@@ -34,7 +34,6 @@ import javafx.scene.layout.StackPane;
  */
 public class JavaFXApplication1 extends Application {
     
-//    static FXMLDocumentController myControllerHandle;
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -44,8 +43,6 @@ public class JavaFXApplication1 extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        
-        
     }
     
     /**
