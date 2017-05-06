@@ -22,7 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="120.0" text="End time of game (hours)">
+      <Label layoutX="21.0" layoutY="120.0" text="End time of game (mins)">
          <font>
             <Font size="14.0" />
          </font>

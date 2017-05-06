@@ -12,7 +12,6 @@ import static World.World.CityList;
 import static World.World.WorldClock;
 import static World.World.checkIfNoBattle;
 import static World.World.timeCount;
-import static World.World.warriorFetchesElements;
 import static World.World.worldController;
 import World.WorldProperty;
 import java.io.File;
@@ -80,7 +79,24 @@ public class SampleController implements Initializable {
     @FXML ImageView city4Red;
     @FXML ImageView city5Blue;
     @FXML ImageView city5Red;
-     
+    
+    @FXML ImageView c1battle;
+    @FXML ImageView c2battle;
+    @FXML ImageView c3battle;
+    @FXML ImageView c4battle;
+    @FXML ImageView c5battle;
+    
+    @FXML ImageView c1bluewin;
+    @FXML ImageView c1redwin;
+    @FXML ImageView c2bluewin;
+    @FXML ImageView c2redwin;
+    @FXML ImageView c3bluewin;
+    @FXML ImageView c3redwin;
+    @FXML ImageView c4bluewin;
+    @FXML ImageView c4redwin;
+    @FXML ImageView c5bluewin;
+    @FXML ImageView c5redwin;
+    
     @FXML private Image image_hq1Flag = new Image("flag_blue.png");
     @FXML private Image image_hq2Flag = new Image("flag_red.png");
     @FXML private Image image_dragon_blue = new Image("dragon_blue.png");
@@ -94,6 +110,10 @@ public class SampleController implements Initializable {
     @FXML private Image image_lion_red = new Image("lion_red.png");
     @FXML private Image image_wolf_red = new Image("wolf_red.png");
     
+    @FXML private Image image_battle = new Image("battle.png");
+    
+    @FXML private Image image_winBattle = new Image("win.png");
+    
     @FXML private Image tempBlue = null;
     @FXML private Image tempRed = null;
 
@@ -106,6 +126,9 @@ public class SampleController implements Initializable {
     @FXML private Label C3LE;
     @FXML private Label C4LE;
     @FXML private Label C5LE;
+    
+    @FXML private Label redstatus_fetchLE;
+    @FXML private Label bluestatus_fetchLE;
     
     
     
@@ -171,9 +194,6 @@ public class SampleController implements Initializable {
     
     @FXML
     public void updateWarriorMarch(int party, int location){
-
-          System.out.println("BLUE WARRIOR LOCATION: " + WarriorType.blueWarriorLocation);
-          System.out.println("RED WARRIOR LOCATION: " + WarriorType.redWarriorLocation);
 
         if(party == WorldProperty.BLUE){
 
@@ -270,6 +290,41 @@ public class SampleController implements Initializable {
         C3LE.setText("");
         C4LE.setText("");
         C5LE.setText("");
+    }
+       
+    @FXML
+    public void updateWarriorFetchesLE(int cID, String name, int party, int numLE){
+        
+        if(party == WorldProperty.RED){
+            redstatus_fetchLE.setText(name + " earned " + numLE + " life elements for his headquarter");  
+        }
+        
+        if(party == WorldProperty.BLUE){
+            bluestatus_fetchLE.setText(name + " earned " + numLE + " life elements for his headquarter");  
+        }
+    }
+    
+    @FXML
+    public void updateBattle(int cID){
+        if(cID == 1){
+            c1battle.setImage(image_battle);
+        }
+        
+        if(cID == 2){
+            c2battle.setImage(image_battle);
+        }
+        
+        if(cID == 3){
+            c3battle.setImage(image_battle);
+        }
+        
+        if(cID == 4){
+            c4battle.setImage(image_battle);
+        }
+        
+        if(cID == 5){
+            c5battle.setImage(image_battle);
+        }
     }
 
     @Override

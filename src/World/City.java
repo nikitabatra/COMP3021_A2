@@ -60,14 +60,16 @@ public class City {
 		return true;
 	}
 	
-	
+	public static boolean checkIfBattle = false;
 	public boolean organizeBattle(){
 		//At least one station is empty, that means no battle.
 		if (this.RedWarriorStation.isEmpty() || this.BlueWarriorStation.isEmpty()){
+                        checkIfBattle = false;
 			return false;
 		}
 		
 		//Both stations have warriors.
+                checkIfBattle = true;
 		Warrior RedWarrior = this.RedWarriorStation.get(0);
 		Warrior BlueWarrior = this.BlueWarriorStation.get(0);
 		
@@ -81,7 +83,7 @@ public class City {
 		} else if (this.CityID % 2 == 0){
 			activeAttackParty = WorldProperty.BLUE;
 		} else {
-			System.err.println("Error organizeBabble: Undefined Situation.");
+			System.err.println("Error organizing Battle: Undefined Situation.");
 		}
 		
 		if (this.activeAttackParty == WorldProperty.RED){
@@ -91,13 +93,9 @@ public class City {
 		} else{
 			
 		}
-		
 
-		
 		this.activeAttackParty = -1;
-		
 		this.Status_AfterBattle = true;
-		
 		return true;
 	}
 	

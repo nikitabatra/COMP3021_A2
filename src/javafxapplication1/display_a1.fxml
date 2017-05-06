@@ -57,7 +57,7 @@
          </font>
       </Label>
 <!--      <Button layoutX="14.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleStartGameA1" prefHeight="27.0" prefWidth="98.0" text="Start Game" />-->
-      <ImageView fx:id="hq1Flag" fitHeight="53.0" fitWidth="48.0" layoutX="42.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hq1Flag" fitHeight="44.0" fitWidth="31.0" layoutX="867.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hq2Flag" />
          </image></ImageView>
@@ -138,7 +138,7 @@
             </ImageView>
             <ImageView fitHeight="59.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../wolf_red.png%1F.png" />
+                  <Image url="@../wolf_red.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="59.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -209,12 +209,12 @@
             </Text>
          </children>
       </GridPane>
-      <Label id="displayTime" fx:id="displayTime" layoutX="381.0" layoutY="125.0" prefHeight="23.0" prefWidth="301.0">
+      <Label id="displayTime" fx:id="displayTime" layoutX="378.0" layoutY="125.0" prefHeight="23.0" prefWidth="237.0" text="Click the button to start">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="hq2Flag" fitHeight="53.0" fitWidth="48.0" layoutX="861.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hq2Flag" fitHeight="38.0" fitWidth="31.0" layoutX="52.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hq2Flag" />
          </image>
@@ -276,6 +276,41 @@
       <Label fx:id="C5LE" layoutX="781.0" layoutY="242.0" textFill="#4b30d3">
          <font>
             <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="c1battle" fitHeight="33.0" fitWidth="31.0" layoutX="195.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c1redwin" fitHeight="33.0" fitWidth="31.0" layoutX="234.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c1bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="156.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="288.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2redwin" fitHeight="33.0" fitWidth="31.0" layoutX="366.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2battle" fitHeight="33.0" fitWidth="31.0" layoutX="327.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3battle" fitHeight="33.0" fitWidth="31.0" layoutX="461.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3redwin" fitHeight="33.0" fitWidth="31.0" layoutX="500.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="422.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="552.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4redwin" fitHeight="33.0" fitWidth="31.0" layoutX="630.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4battle" fitHeight="33.0" fitWidth="31.0" layoutX="591.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5battle" fitHeight="33.0" fitWidth="31.0" layoutX="732.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5redwin" fitHeight="33.0" fitWidth="31.0" layoutX="771.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="693.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="328.0" layoutY="152.0" prefHeight="23.0" prefWidth="189.0" text="Status of Red Team: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="redstatus_fetchLE" layoutX="511.0" layoutY="154.0" prefHeight="19.0" prefWidth="484.0" textFill="#098a1c" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="178.0" prefHeight="23.0" prefWidth="189.0" text="Status of Blue Team: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bluestatus_fetchLE" layoutX="511.0" layoutY="180.0" prefHeight="19.0" prefWidth="476.0" textFill="#3f79dd" wrapText="true">
+         <font>
+            <Font size="15.0" />
          </font>
       </Label>
     </children>

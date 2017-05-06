@@ -53,8 +53,9 @@ public class World {
 		CityList.add(c_last);
 	}
 	
+        int keepCount = 0;
         public void runGame(String currentTime) throws InterruptedException, IOException{
-                         
+                    if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
                                 worldController.updatePage(currentTime);
@@ -102,7 +103,6 @@ public class World {
 			if (WorldClock.getMinute() == 30){
                                 worldController.removeProduceLEdisplay();
                                 worldController.updatePage(currentTime);
-                                System.out.println("CHECK IF WARRIOR FETCHES: " + warriorFetchesElements);
                                 warriorsFetchLifeElementsFromCity();
 			}
 				
@@ -119,7 +119,9 @@ public class World {
 				headquartersReportLifeElements();	
 			}
                         timeCount = WorldClock.getTime();
-			WorldClock.increase();
+                        keepCount++;
+                    }
+                        WorldClock.increase();		
 	}
         
         public static boolean checkIfNoBattle = true;
@@ -129,9 +131,10 @@ public class World {
 	public void holdBattlesAndWorkAfterBattles() {
 		for (int index=1; index <= WorldProperty.NumberOfCity; index++){
 			 City c = CityList.get(index);
-                         if(c.organizeBattle() == false){
-                             checkIfNoBattle = false;
-                         }
+                         c.organizeBattle();
+                         if(c.checkIfBattle == true){
+                             worldController.updateBattle(c.CityID);
+                         }        
 		 }
 
 		 //reward army.
@@ -158,7 +161,8 @@ public class World {
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
 	}
         
-        public static boolean warriorFetchesElements = true;
+        public static boolean blueWarriorFetchesLE = false;
+        public static boolean redWarriorFetchesLE = false;
 	//After March
 	public void warriorsFetchLifeElementsFromCity() {
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
@@ -173,17 +177,19 @@ public class World {
 			//Red Fetch
 			else if (c.BlueWarriorStation.isEmpty()){
 				Warrior w = c.RedWarriorStation.get(0);
+                                worldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
-				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(),w.WarriorNameCard,c.LifeElement);
+				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(), w.WarriorNameCard,c.LifeElement);
 				RedHeadquarters.addLifeElement(c.popLifeElements());
 			}
 			else if (c.RedWarriorStation.isEmpty()){
+
 				Warrior w = c.BlueWarriorStation.get(0);
+                                worldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
 				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(),w.WarriorNameCard,c.LifeElement);
 				BlueHeadquarters.addLifeElement(c.popLifeElements());
 			} else {
-                            warriorFetchesElements = false;
 				// Two warriors in this city.
 			}
 		}
@@ -207,7 +213,6 @@ public class World {
 			City city = CityList.get(i);
 			while (!city.RedWarriorStation.isEmpty()){
                                 int redMoveTo = city.RedWarriorStation.get(0).Location + 1;                              
-                                System.out.println("GOT FROM WORLD CLASS RED MOVES TO: " + redMoveTo);
 				city.RedWarriorStation.get(0).move();
                                 worldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
 			}
@@ -217,7 +222,6 @@ public class World {
 			City city = CityList.get(i);
 			while (!city.BlueWarriorStation.isEmpty()){
                                 int blueMoveTo = city.BlueWarriorStation.get(0).Location - 1;
-                                System.out.println("GOT FROM WORLD CLASS BLUE MOVES TO: " + blueMoveTo);
 				city.BlueWarriorStation.get(0).move();
                                 worldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
 			}
