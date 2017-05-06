@@ -25,6 +25,7 @@ public class World {
 	public static ArrayList<City> CityList;
         public static String timeCount = "";
         public static SampleController worldController;
+        public static boolean checkOccupied = false;
                 
                 
         public static void main(String[] args) {
@@ -52,9 +53,7 @@ public class World {
 	}
 	
         public void runGame(String currentTime) throws InterruptedException, IOException{
- 
-		//for (int minute=0; minute<=WorldProperty.MaxMinutes/10; minute++){
-                        
+                         
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
                                 //Thread.sleep(500);
@@ -65,8 +64,6 @@ public class World {
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){
-                                //Thread.sleep(500);
-//                                worldController.updatePage(WorldClock.getTime());
                                   worldController.updatePage(currentTime);
                                 
 				marchWarriors();
@@ -77,11 +74,13 @@ public class World {
 				boolean RedOcuupied = RedHeadquarters.checkOccupied();
 				boolean BlueOcuupied = BlueHeadquarters.checkOccupied();
 				if ( RedOcuupied || BlueOcuupied ){
+					checkOccupied = true;
+				}
+				if ( RedOcuupied || BlueOcuupied ){
 					return;
 				}
 				
 			}
-                        worldController.updatePage("");
 			// :20 Produce Life Elements
 			if (WorldClock.getMinute() == 20){
                                 worldController.updatePage(currentTime);
@@ -92,9 +91,6 @@ public class World {
 			if (WorldClock.getMinute() == 30){
                                 worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF WARRIOR FETCHES: " + warriorFetchesElements);
-//                                if(warriorFetchesElements == true){
-//                                    Thread.sleep(500);
-//                                }
                                 warriorsFetchLifeElementsFromCity();
 			}
 				
@@ -102,25 +98,16 @@ public class World {
 			if (WorldClock.getMinute() == 40){
                                 worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF NO BATTLE: " + checkIfNoBattle);
-//                                if(checkIfNoBattle == false){
-//                                    Thread.sleep(500);
-//                                    holdBattlesAndWorkAfterBattles();
-//                                }
-
 				holdBattlesAndWorkAfterBattles();
 			}
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
                                 worldController.updatePage(currentTime);
-//                                Thread.sleep(500);
-                                
 				headquartersReportLifeElements();	
 			}
                         timeCount = WorldClock.getTime();
 			WorldClock.increase();
-                        
-		//}
 	}
         
         public static boolean checkIfNoBattle = true;
@@ -133,7 +120,6 @@ public class World {
                          if(c.organizeBattle() == false){
                              checkIfNoBattle = false;
                          }
-			 //c.organizeBattle();
 		 }
 
 		 //reward army.
