@@ -11,11 +11,11 @@ public class Clock {
 	}
 	
 	//TODO: Add customFormat to hint
-   static public String customFormat(String pattern, double value ) {
-	      DecimalFormat myFormatter = new DecimalFormat(pattern);
-	      String output = myFormatter.format(value);
-	      return output;
-   }
+        static public String customFormat(String pattern, double value ) {
+                   DecimalFormat myFormatter = new DecimalFormat(pattern);
+                   String output = myFormatter.format(value);
+                   return output;
+        }
 	
 	public String getTime(){
 		return customFormat("000",hour) + ":" + customFormat("00",minute);

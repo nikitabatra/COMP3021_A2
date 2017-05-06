@@ -47,15 +47,10 @@ import javafx.stage.StageStyle;
 
 public class FXMLDocumentController implements Initializable {
     
+    
+    static public SampleController worldController;
+    
     @FXML Label displayTime;
-//    public FXMLDocumentController(String timeLabel){
-////        displayTime.setText(timeLabel);
-//        System.out.println(timeLabel);
-//    }
-//    public void updatePage(String data){
-//        myName.setText(data);
-//        //System.out.println(data);
-//    }
     
     @FXML
     private Label myName;
@@ -123,6 +118,8 @@ public class FXMLDocumentController implements Initializable {
 //        w.runGame();
 //    }
     
+    
+    
     @FXML
     private void handleInputParametersOption1(ActionEvent event) { // input page
 
@@ -168,7 +165,7 @@ public class FXMLDocumentController implements Initializable {
                 boolean validNAV = n_AV >= 0 && n_AV <= 100;
                 boolean validIAV = i_AV >= 0 && i_AV <= 100;
                 boolean validLAV = l_AV >= 0 && l_AV <= 100;
-                 boolean validWAV = w_AV >= 0 && w_AV <= 100;
+                boolean validWAV = w_AV >= 0 && w_AV <= 100;
                         
                 if(!(validDHP && validNHP && validIHP && validLHP && validWHP)){
                         System.out.println("Error:  Attack Value input not valid.");
@@ -181,13 +178,19 @@ public class FXMLDocumentController implements Initializable {
                 WorldProperty.InitLifeElements = numLE;
                 WorldProperty.MaxMinutes = numT;
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_a1.fxml"));
+                 
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("display_a1.fxml"));
+                worldController = fxmlLoader.getController();
+                
                 Parent root1 = (Parent) fxmlLoader.load();
+                
                 Stage stage = new Stage();
                 stage.setTitle("World of Warcraft: Assignment 1");
                 Scene scene1 = new Scene(root1, 1000, 700);
                 stage.setScene(scene1);                
                 stage.show();
+                
       
         } catch(Exception e) {
            System.out.println("Error: There should be 12 elements in total.");
@@ -221,6 +224,7 @@ public class FXMLDocumentController implements Initializable {
                 Scene scene1 = new Scene(root1, 800, 600);
                 stage.setScene(scene1);
                 stage.show();
+                
         } catch(Exception e) {
            e.printStackTrace();
           }
@@ -253,15 +257,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //image = new Image("flag_blue.png");
         System.out.println("Reaching initialize WOOOOHOOOOOOO");
-        
-        //ImageView imageview = null;
-        //imageview.setImage(new Image("flag_red.png"));
-        //imageview.setImage(new Image("flag_red.png"));
-        //imageview.setImage(image);
-        //hq1.setImage(img_hq1); 
-        //hq1.setImage(img_hq1);
+
     }    
     
 }

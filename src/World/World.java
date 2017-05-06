@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import Warriors.Warrior;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,21 +15,25 @@ import javafx.scene.image.ImageView;
 import javafxapplication1.FXMLDocumentController;
 import javafxapplication1.SampleController;
 import javafx.application.Application;
+import javafx.stage.Stage;
 import javafxapplication1.JavaFXApplication1;
 
 public class World {
 	public static Clock WorldClock;
+        
 	//Cities start from Red Headquarters and end with Blue Headquarters
 	public static ArrayList<City> CityList;
         public static String timeCount = "";
-        
+        public static SampleController worldController;
+                
+                
         public static void main(String[] args) {
             Application.launch(JavaFXApplication1.class, args);
-    }
+        }
 	
-	public World(){
-		
-		//initialize clock
+	public World(SampleController worldController){
+		this.worldController = worldController;
+		//initialize clock 
 		WorldClock = new Clock();
 		
 		//initialize Cities
@@ -43,21 +49,26 @@ public class World {
 		
 		City c_last = new Headquarters(WorldProperty.BlueProductionOrder, WorldProperty.BLUE, WorldProperty.InitLifeElements,WorldProperty.NumberOfCity+1);
 		CityList.add(c_last);
-	
 	}
 	
-        public void runGame() throws InterruptedException, IOException{
-		for (int minute=0; minute<=WorldProperty.MaxMinutes/10; minute++){
+        public void runGame(String currentTime) throws InterruptedException, IOException{
+ 
+		//for (int minute=0; minute<=WorldProperty.MaxMinutes/10; minute++){
+                        
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
-                                Thread.sleep(500);
+                                //Thread.sleep(500);
+                                //worldController.updatePage(WorldClock.getTime());
+                                worldController.updatePage(currentTime);
 
 				((Headquarters)CityList.get(0)).tryToProduceWarrior();
 				((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).tryToProduceWarrior();
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){
-                                Thread.sleep(500);
+                                //Thread.sleep(500);
+//                                worldController.updatePage(WorldClock.getTime());
+                                  worldController.updatePage(currentTime);
                                 
 				marchWarriors();
 				
@@ -71,64 +82,57 @@ public class World {
 				}
 				
 			}
+                        worldController.updatePage("");
 			// :20 Produce Life Elements
 			if (WorldClock.getMinute() == 20){
+                                //worldController.updatePage(WorldClock.getTime());
+                                worldController.updatePage(currentTime);
 				ProduceLifeElements();
 			}
 			
 			// :30 Warriors Fetch Life Elements to their headquarters
 			if (WorldClock.getMinute() == 30){
+                                //worldController.updatePage(WorldClock.getTime());
+                                worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF WARRIOR FETCHES: " + warriorFetchesElements);
-                                if(warriorFetchesElements == true){
-                                    Thread.sleep(500);
-                                }
+//                                if(warriorFetchesElements == true){
+//                                    Thread.sleep(500);
+//                                }
                                 warriorsFetchLifeElementsFromCity();
 			}
 				
 			// :40 Organize Battels (Core function.)
 			if (WorldClock.getMinute() == 40){
-
+                                //worldController.updatePage(WorldClock.getTime());
+                                worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF NO BATTLE: " + checkIfNoBattle);
-                                if(checkIfNoBattle == false){
-                                    Thread.sleep(500);
-                                    holdBattlesAndWorkAfterBattles();
-                                }
+//                                if(checkIfNoBattle == false){
+//                                    Thread.sleep(500);
+//                                    holdBattlesAndWorkAfterBattles();
+//                                }
 
 				holdBattlesAndWorkAfterBattles();
 			}
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
-                                Thread.sleep(500);
+                                //worldController.updatePage(WorldClock.getTime());
+                                worldController.updatePage(currentTime);
+//                                Thread.sleep(500);
                                 
 				headquartersReportLifeElements();	
 			}
                         timeCount = WorldClock.getTime();
 			WorldClock.increase();
-//                        FXMLLoader fxmlLoader = new FXMLLoader();
-//                        fxmlLoader.setLocation(getClass().getResource("display_a1.fxml"));
-//                        SampleController sc;
-//                        sc.getSampleController();
-//                        fxmlLoader.setController(sc);
-//                        SampleController sc = (SampleController) fxmlLoader.getController();
-//                        sc.updatePage("NCWEHBVJHERBVJKHERBVHKERBKVEHJRBVEJKRBVHJ");
-                        //sc.updatePage(WorldClock.getTime());
                         
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-                        SampleController sc = new SampleController();
-                        fxmlLoader.setController(sc);
-                        fxmlLoader.setLocation(getClass().getResource("display_a1.fxml"));
-                        //sc.updatePage("NCWEHBVJHERBVJKHERBVHKERBKVEHJRBVEJKRBVHJ");
-                        //Parent root = fxmlLoader.load();
-                        //sc.updatePage(WorldClock.getTime());
-		}
+		//}
 	}
         
-        boolean checkIfNoBattle = true;
+        public static boolean checkIfNoBattle = true;
 	/**
 	 * 
 	 */
-	private void holdBattlesAndWorkAfterBattles() {
+	public void holdBattlesAndWorkAfterBattles() {
 		for (int index=1; index <= WorldProperty.NumberOfCity; index++){
 			 City c = CityList.get(index);
                          if(c.organizeBattle() == false){
@@ -153,7 +157,7 @@ public class World {
 	/**
 	 * 
 	 */
-	private void headquartersReportLifeElements() {
+	public void headquartersReportLifeElements() {
 		//000:50 100 elements in red headquarter
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
@@ -161,9 +165,9 @@ public class World {
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
 	}
         
-        boolean warriorFetchesElements = true;
+        public static boolean warriorFetchesElements = true;
 	//After March
-	private void warriorsFetchLifeElementsFromCity() {
+	public void warriorsFetchLifeElementsFromCity() {
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
 		
@@ -191,8 +195,7 @@ public class World {
 			}
 		}
 	}
-	
-	
+
 	public void ProduceLifeElements(){
 		for (City c: CityList){
 			if (!(c instanceof Headquarters)){
@@ -200,8 +203,7 @@ public class World {
 			}
 		}
 	}
-	
-	
+
 	//TODO: modify operation on CityList to Warrior.move()
 	public void marchWarriors(){
 		//March Red Warriors.		
@@ -241,7 +243,7 @@ public class World {
 		}			
 	}
 	
-	private void warriorReportMarch(City c,Warrior w) {
+	public void warriorReportMarch(City c,Warrior w) {
 		if (c instanceof Headquarters){
 			//003:10 red lion 2 reached blue headquarter with 58 elements and force 50
 			System.out.format("%s %s reached %s headquarter with %d elements and force %d\n", 
