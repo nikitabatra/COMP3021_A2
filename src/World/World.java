@@ -58,7 +58,6 @@ public class World {
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
                                 //Thread.sleep(500);
-                                //worldController.updatePage(WorldClock.getTime());
                                 worldController.updatePage(currentTime);
 
 				((Headquarters)CityList.get(0)).tryToProduceWarrior();
@@ -85,14 +84,12 @@ public class World {
                         worldController.updatePage("");
 			// :20 Produce Life Elements
 			if (WorldClock.getMinute() == 20){
-                                //worldController.updatePage(WorldClock.getTime());
                                 worldController.updatePage(currentTime);
 				ProduceLifeElements();
 			}
 			
 			// :30 Warriors Fetch Life Elements to their headquarters
 			if (WorldClock.getMinute() == 30){
-                                //worldController.updatePage(WorldClock.getTime());
                                 worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF WARRIOR FETCHES: " + warriorFetchesElements);
 //                                if(warriorFetchesElements == true){
@@ -103,7 +100,6 @@ public class World {
 				
 			// :40 Organize Battels (Core function.)
 			if (WorldClock.getMinute() == 40){
-                                //worldController.updatePage(WorldClock.getTime());
                                 worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF NO BATTLE: " + checkIfNoBattle);
 //                                if(checkIfNoBattle == false){
@@ -116,7 +112,6 @@ public class World {
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
-                                //worldController.updatePage(WorldClock.getTime());
                                 worldController.updatePage(currentTime);
 //                                Thread.sleep(500);
                                 
