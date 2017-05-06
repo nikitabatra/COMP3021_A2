@@ -4,7 +4,7 @@ import Warriors.WarriorType;
 
 public class WorldProperty {
 	public static int InitLifeElements = 99;
-	public static int NumberOfCity = 2;
+	public static int NumberOfCity = 5;
 	public static int MaxMinutes = 100;
         public static int checkEventNum = 0; // 0 to 5, then reset to 0
 	

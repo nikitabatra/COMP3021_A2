@@ -3,6 +3,7 @@ package World;
 import java.util.ArrayList;
 
 import Warriors.Warrior;
+import Warriors.WarriorType;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,6 +72,7 @@ public class World {
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){
+                                  worldController.removeWarriorLabel();
                                   worldController.updatePage(currentTime);
                                 
 				marchWarriors();
@@ -193,21 +195,33 @@ public class World {
 	}
 
 	//TODO: modify operation on CityList to Warrior.move()
+        public static int blueMoveTo;
+        public static int redMoveTo;
 	public void marchWarriors(){
+            
 		//March Red Warriors.		
 		for (int i=WorldProperty.NumberOfCity;i>=0;i--){
 			City city = CityList.get(i);
 			while (!city.RedWarriorStation.isEmpty()){
+                                int redMoveTo = city.RedWarriorStation.get(0).Location + 1;                              
+                                System.out.println("GOT FROM WORLD CLASS RED MOVES TO: " + redMoveTo);
 				city.RedWarriorStation.get(0).move();
+                                worldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
 			}
 		}
 		//March Blue Warriors.
 		for (int i=1;i<=WorldProperty.NumberOfCity+1;i++){
 			City city = CityList.get(i);
 			while (!city.BlueWarriorStation.isEmpty()){
+                                int blueMoveTo = city.BlueWarriorStation.get(0).Location - 1;
+                                System.out.println("GOT FROM WORLD CLASS BLUE MOVES TO: " + blueMoveTo);
 				city.BlueWarriorStation.get(0).move();
+                                worldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
 			}
-		}	
+		}
+                
+                
+                
 		//Report March Information
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);

@@ -10,8 +10,10 @@ public class WarriorType {
 	//Arributes of Warriors
 	public static int[] HP_LIST = {10,20,50,50,30};
 	public static int[] ATTACK_LIST = {20,50,50,50,50};
-        // N: Added numLE and NumT
-	
+        
+        public static int blueWarriorLocation;
+        public static int redWarriorLocation;
+        
 	public int getHPByIndex(int i){
 		return HP_LIST[i];
 	}
