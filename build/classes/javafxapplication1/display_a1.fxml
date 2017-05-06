@@ -239,19 +239,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="city1Blue" fitHeight="44.0" fitWidth="43.0" layoutX="152.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city1Blue" fitHeight="44.0" fitWidth="43.0" layoutX="155.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="city1Red" fitHeight="44.0" fitWidth="43.0" layoutX="215.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="277.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city2Red" fitHeight="44.0" fitWidth="43.0" layoutX="355.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city3Blue" fitHeight="44.0" fitWidth="43.0" layoutX="412.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city3Red" fitHeight="44.0" fitWidth="43.0" layoutX="490.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city4Blue" fitHeight="44.0" fitWidth="43.0" layoutX="542.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city4Red" fitHeight="44.0" fitWidth="43.0" layoutX="620.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city5Blue" fitHeight="44.0" fitWidth="43.0" layoutX="683.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="city5Red" fitHeight="44.0" fitWidth="43.0" layoutX="761.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="287.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city2Red" fitHeight="44.0" fitWidth="43.0" layoutX="346.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city3Blue" fitHeight="44.0" fitWidth="43.0" layoutX="422.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city3Red" fitHeight="44.0" fitWidth="43.0" layoutX="483.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city4Blue" fitHeight="44.0" fitWidth="43.0" layoutX="552.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city4Red" fitHeight="44.0" fitWidth="43.0" layoutX="613.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city5Blue" fitHeight="44.0" fitWidth="43.0" layoutX="691.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city5Red" fitHeight="44.0" fitWidth="43.0" layoutX="757.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="hq1Blue" fitHeight="44.0" fitWidth="43.0" layoutX="13.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="hq1Red" fitHeight="44.0" fitWidth="43.0" layoutX="86.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="hq2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="818.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="hq2Red" fitHeight="44.0" fitWidth="43.0" layoutX="906.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="829.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq2Red" fitHeight="44.0" fitWidth="43.0" layoutX="894.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

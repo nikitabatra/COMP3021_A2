@@ -164,7 +164,7 @@ public class SampleController implements Initializable {
         }
         
         if(location == 3){
-            tempRed = city4Blue.getImage();
+            tempRed = city4Red.getImage();
             city4Red.setImage(null);
             city3Red.setImage(tempRed);
         }

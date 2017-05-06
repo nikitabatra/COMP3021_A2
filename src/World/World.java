@@ -219,9 +219,7 @@ public class World {
                                 worldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
 			}
 		}
-                
-                
-                
+
 		//Report March Information
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
