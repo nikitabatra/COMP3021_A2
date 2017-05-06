@@ -101,6 +101,12 @@ public class SampleController implements Initializable {
     @FXML private Label produceBlue;
     @FXML private Label produceRed;
     
+    @FXML private Label C1LE;
+    @FXML private Label C2LE;
+    @FXML private Label C3LE;
+    @FXML private Label C4LE;
+    @FXML private Label C5LE;
+    
     
     
     @FXML
@@ -138,104 +144,7 @@ public class SampleController implements Initializable {
             if(warriorNameRed == "wolf") hq2Red.setImage(image_wolf_red);
         }
     }
-    
-    @FXML
-    public void updateWarriorMarch(int party, int location){
-//        int blueMove = WorldObject.blueMoveTo;
-//        System.out.println("BLUE MOVES TOOOOOOO: " + blueMove);
-//        int redMove = WorldObject.redMoveTo;
-//        System.out.println("RED MOVES TOOOOOOO: " + redMove);
 
-          System.out.println("BLUE WARRIOR LOCATION: " + WarriorType.blueWarriorLocation);
-          System.out.println("RED WARRIOR LOCATION: " + WarriorType.redWarriorLocation);
-
-    if(party == WorldProperty.BLUE){
-        
-        if(location == 5){
-            tempRed = hq2Red.getImage();
-            hq2Red.setImage(null);
-            city5Red.setImage(tempRed);
-        }
-        
-        if(location == 4){
-            tempRed = city5Red.getImage();
-            city5Red.setImage(null);
-            city4Red.setImage(tempRed);
-        }
-        
-        if(location == 3){
-            tempRed = city4Red.getImage();
-            city4Red.setImage(null);
-            city3Red.setImage(tempRed);
-        }
-        
-        if(location == 2){
-            tempRed = city3Blue.getImage();
-            city3Red.setImage(null);
-            city2Red.setImage(tempRed);
-        }
-        
-        if(location == 1){
-            tempRed = city2Blue.getImage();
-            city2Red.setImage(null);
-            city1Red.setImage(tempRed);
-        }
-        
-        if(location == 0){
-            tempRed = city1Blue.getImage();
-            city1Red.setImage(null);
-            hq1Red.setImage(tempRed);
-        } 
-    }
-    
-    if(party == WorldProperty.RED){
-       
-        if(location == 1){
-            tempBlue = hq1Blue.getImage();
-            hq1Blue.setImage(null);
-            city1Blue.setImage(tempBlue);
-        }
-        
-        if(location == 2){
-            tempBlue = city1Blue.getImage();
-            city1Blue.setImage(null);
-            city2Blue.setImage(tempBlue);
-        }
-        
-        if(location == 3){
-            tempBlue = city2Blue.getImage();
-            city2Blue.setImage(null);
-            city3Blue.setImage(tempBlue);
-        }
-        
-        if(location == 4){
-            tempBlue = city3Blue.getImage();
-            city3Blue.setImage(null);
-            city4Blue.setImage(tempBlue);
-        }
-        
-        if(location == 5){
-            tempBlue = city4Blue.getImage();
-            city4Blue.setImage(null);
-            city5Blue.setImage(tempBlue);
-        }
-        
-        if(location == 6){
-            tempBlue = city5Blue.getImage();
-            city5Blue.setImage(null);
-            hq2Blue.setImage(tempBlue);
-        }  
-    }
-
-
-    }
-    
-    @FXML
-    public void removeWarriorLabel(){
-        produceBlue.setText("");
-        produceRed.setText("");
-    }
-    
     @FXML
     private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
         displayTime.setText("Game End");
@@ -252,6 +161,115 @@ public class SampleController implements Initializable {
         }
         String currentTime = this.WorldObject.WorldClock.getTime();
         this.WorldObject.runGame(currentTime);    
+    }
+    
+    @FXML
+    public void removeWarriorLabel(){
+        produceBlue.setText("");
+        produceRed.setText("");
+    }
+    
+    @FXML
+    public void updateWarriorMarch(int party, int location){
+
+          System.out.println("BLUE WARRIOR LOCATION: " + WarriorType.blueWarriorLocation);
+          System.out.println("RED WARRIOR LOCATION: " + WarriorType.redWarriorLocation);
+
+        if(party == WorldProperty.BLUE){
+
+            if(location == 5){
+                tempRed = hq2Red.getImage();
+                hq2Red.setImage(null);
+                city5Red.setImage(tempRed);
+            }
+
+            if(location == 4){
+                tempRed = city5Red.getImage();
+                city5Red.setImage(null);
+                city4Red.setImage(tempRed);
+            }
+
+            if(location == 3){
+                tempRed = city4Red.getImage();
+                city4Red.setImage(null);
+                city3Red.setImage(tempRed);
+            }
+
+            if(location == 2){
+                tempRed = city3Blue.getImage();
+                city3Red.setImage(null);
+                city2Red.setImage(tempRed);
+            }
+
+            if(location == 1){
+                tempRed = city2Blue.getImage();
+                city2Red.setImage(null);
+                city1Red.setImage(tempRed);
+            }
+
+            if(location == 0){
+                tempRed = city1Blue.getImage();
+                city1Red.setImage(null);
+                hq1Red.setImage(tempRed);
+            } 
+        }
+
+        if(party == WorldProperty.RED){
+
+            if(location == 1){
+                tempBlue = hq1Blue.getImage();
+                hq1Blue.setImage(null);
+                city1Blue.setImage(tempBlue);
+            }
+
+            if(location == 2){
+                tempBlue = city1Blue.getImage();
+                city1Blue.setImage(null);
+                city2Blue.setImage(tempBlue);
+            }
+
+            if(location == 3){
+                tempBlue = city2Blue.getImage();
+                city2Blue.setImage(null);
+                city3Blue.setImage(tempBlue);
+            }
+
+            if(location == 4){
+                tempBlue = city3Blue.getImage();
+                city3Blue.setImage(null);
+                city4Blue.setImage(tempBlue);
+            }
+
+            if(location == 5){
+                tempBlue = city4Blue.getImage();
+                city4Blue.setImage(null);
+                city5Blue.setImage(tempBlue);
+            }
+
+            if(location == 6){
+                tempBlue = city5Blue.getImage();
+                city5Blue.setImage(null);
+                hq2Blue.setImage(tempBlue);
+            }  
+        }
+    }
+    
+    @FXML
+    public void updateProduceLE(){
+        C1LE.setText("+10");
+        C2LE.setText("+10");
+        C3LE.setText("+10");
+        C4LE.setText("+10");
+        C5LE.setText("+10");
+    }
+    
+    @FXML
+    public void removeProduceLEdisplay(){
+        C1LE.setText("");
+        C2LE.setText("");
+        C3LE.setText("");
+        C4LE.setText("");
+        C5LE.setText("");
     }
 
     @Override

@@ -253,5 +253,30 @@
       <ImageView fx:id="hq1Red" fitHeight="44.0" fitWidth="43.0" layoutX="86.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="hq2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="829.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="hq2Red" fitHeight="44.0" fitWidth="43.0" layoutX="894.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="C1LE" layoutX="241.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C2LE" layoutX="375.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C3LE" layoutX="508.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C4LE" layoutX="639.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C5LE" layoutX="781.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

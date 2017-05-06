@@ -94,10 +94,13 @@ public class World {
 			if (WorldClock.getMinute() == 20){
                                 worldController.updatePage(currentTime);
 				ProduceLifeElements();
+                                worldController.updateProduceLE();
+                                
 			}
 			
 			// :30 Warriors Fetch Life Elements to their headquarters
 			if (WorldClock.getMinute() == 30){
+                                worldController.removeProduceLEdisplay();
                                 worldController.updatePage(currentTime);
                                 System.out.println("CHECK IF WARRIOR FETCHES: " + warriorFetchesElements);
                                 warriorsFetchLifeElementsFromCity();
