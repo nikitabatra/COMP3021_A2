@@ -96,7 +96,7 @@ public class SampleController implements Initializable {
     @FXML ImageView c4redwin;
     @FXML ImageView c5bluewin;
     @FXML ImageView c5redwin;
-    
+ 
     @FXML private Image image_hq1Flag = new Image("flag_red.png");
     @FXML private Image image_hq2Flag = new Image("flag_blue.png");
     
@@ -114,8 +114,7 @@ public class SampleController implements Initializable {
     @FXML private Image image_battle = new Image("battle.png");
     @FXML private Image image_winBattle = new Image("win.png");
       
-    @FXML private Image possible = new Image("possible.png");
-    @FXML private Image impossible = new Image("impossible.png");
+
 
     @FXML private Label displayTime;
     @FXML private Label produceBlue;
@@ -144,6 +143,12 @@ public class SampleController implements Initializable {
         hq2Flag.setImage(image_hq2Flag);
     }
     
+    @FXML ImageView blueProdSuccess;
+    @FXML ImageView redProdSuccess;
+    
+    @FXML private Image image_success = new Image("success.png");
+    @FXML private Image image_failure = new Image("failure.png"); 
+    
     @FXML
     public void updateProduceWarriors(int blueType, int redType, boolean blueSuccess, boolean redSuccess){
         String warriorNameBlue = WarriorType.WarriorNames[blueType];
@@ -152,19 +157,27 @@ public class SampleController implements Initializable {
         produceRed.setText(warriorNameRed);  
 
         if(blueSuccess == true){
+            blueProdSuccess.setImage(image_success); 
             if(warriorNameBlue == "dragon") hq2Blue.setImage(image_dragon_blue);
             if(warriorNameBlue == "ninja") hq2Blue.setImage(image_ninja_blue);
             if(warriorNameBlue == "iceman") hq2Blue.setImage(image_iceman_blue);
             if(warriorNameBlue == "lion") hq2Blue.setImage(image_lion_blue);
             if(warriorNameBlue == "wolf") hq2Blue.setImage(image_wolf_blue);
         }
+        else{
+            blueProdSuccess.setImage(image_failure); 
+        }
         
         if(redSuccess == true){
+            redProdSuccess.setImage(image_success); 
             if(warriorNameRed == "dragon") hq1Red.setImage(image_dragon_red);
             if(warriorNameRed == "ninja") hq1Red.setImage(image_ninja_red);
             if(warriorNameRed == "iceman") hq1Red.setImage(image_iceman_red);
             if(warriorNameRed == "lion") hq1Red.setImage(image_lion_red);
             if(warriorNameRed == "wolf") hq1Red.setImage(image_wolf_red);
+        }
+        else{
+            redProdSuccess.setImage(image_failure); 
         }
     }
 
@@ -190,6 +203,8 @@ public class SampleController implements Initializable {
     public void removeWarriorLabel(){
         produceBlue.setText("");
         produceRed.setText("");
+        redProdSuccess.setImage(null);
+        blueProdSuccess.setImage(null);
     }
     
     @FXML private Image tempBlue = null;

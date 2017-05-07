@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.SampleController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.SampleController_single">
     <children>
       <Label layoutX="14.0" layoutY="14.0" text="World of Warcraft: Assignment 1">
          <font>
@@ -98,7 +98,7 @@
                   <Image url="@../wolf_blue.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <ImageView fx:id="blueProdSuccess" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <image>
                   <Image url="@bluePossible" />
                </image>
@@ -141,7 +141,7 @@
                   <Image url="@../wolf_red.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="59.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <ImageView fx:id="redProdSuccess" fitHeight="59.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <image>
                   <Image url="@redPossible" />
                </image>
@@ -323,11 +323,11 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="453.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Dragon" />
-      <Button layoutX="566.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Ninja" />
-      <Button layoutX="453.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Iceman" />
-      <Button layoutX="510.0" layoutY="562.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Wolf" />
-      <Button layoutX="568.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Lion" />
+      <Button fx:id="produceDragon" layoutX="453.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Dragon" />
+      <Button fx:id="produceNinja" layoutX="566.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Ninja" />
+      <Button fx:id="produceIceman" layoutX="453.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Iceman" />
+      <Button fx:id="produceWolf" layoutX="510.0" layoutY="562.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Wolf" />
+      <Button fx:id="produceLion" layoutX="568.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Lion" />
       <Label layoutX="327.0" layoutY="425.0" prefHeight="23.0" prefWidth="31.0" text="You" textFill="#169a40">
          <font>
             <Font size="15.0" />

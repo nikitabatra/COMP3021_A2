@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXApplication1.jar" size="9082207" download="eager" />
+    <jar href="JavaFXApplication1.jar" size="9096136" download="eager" />
     <jar href="lib/commons-cli-1.4.jar" size="53820" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXApplication1" >

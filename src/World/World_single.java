@@ -29,7 +29,7 @@ public class World_single {
         public static String timeCount = "";
         public static SampleController_single worldController;
         public static boolean checkOccupied = false;
-                
+        public static int userChosenWarrior;   
                 
         public static void main(String[] args) {
             Application.launch(JavaFXApplication1.class, args);
@@ -43,7 +43,7 @@ public class World_single {
 		//initialize Cities
 		CityList = new ArrayList<City>();
 		
-		City c0 = new Headquarters(WorldProperty.RedProductionOrder, WorldProperty.RED, WorldProperty.InitLifeElements,0);
+		City c0 = new Headquarters_single(WorldProperty.RedProductionOrder, WorldProperty.RED, WorldProperty.InitLifeElements,0);
 		CityList.add(c0);
 		
 		for (int i=1;i<=WorldProperty.NumberOfCity;i++){
@@ -51,7 +51,7 @@ public class World_single {
 			CityList.add(c);
 		}
 		
-		City c_last = new Headquarters(WorldProperty.BlueProductionOrder, WorldProperty.BLUE, WorldProperty.InitLifeElements,WorldProperty.NumberOfCity+1);
+		City c_last = new Headquarters_single(WorldProperty.BlueProductionOrder, WorldProperty.BLUE, WorldProperty.InitLifeElements,WorldProperty.NumberOfCity+1);
 		CityList.add(c_last);
 	}
 	
@@ -64,13 +64,13 @@ public class World_single {
                                 worldController.updatePage(currentTime);
                                 worldController.startGameDisplay();
                                 
-                                ((Headquarters)CityList.get(0)).tryToProduceWarrior();
-				((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).tryToProduceWarrior();
+                                ((Headquarters_single)CityList.get(0)).tryToProduceWarrior(userChosenWarrior);
+				((Headquarters_single)CityList.get(WorldProperty.NumberOfCity+1)).tryToProduceWarrior(userChosenWarrior);
                                 
-                                int blueWarriorType = ((Headquarters)CityList.get(0)).whichBlueWarrior;
-                                int redWarriorType = ((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).whichRedWarrior;
-                                boolean blueSuccess = ((Headquarters)CityList.get(0)).blueProductionSuccess;
-                                boolean redSuccess = ((Headquarters)CityList.get(WorldProperty.NumberOfCity+1)).redProductionSuccess;			
+                                int blueWarriorType = ((Headquarters_single)CityList.get(0)).whichBlueWarrior;
+                                int redWarriorType = ((Headquarters_single)CityList.get(WorldProperty.NumberOfCity+1)).whichRedWarrior;
+                                boolean blueSuccess = ((Headquarters_single)CityList.get(0)).blueProductionSuccess;
+                                boolean redSuccess = ((Headquarters_single)CityList.get(WorldProperty.NumberOfCity+1)).redProductionSuccess;			
                                 
                                 worldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
 			}
@@ -82,8 +82,8 @@ public class World_single {
 				marchWarriors();
 				
 				//Check End Of Game
-				Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
-				Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+				Headquarters_single RedHeadquarters = (Headquarters_single) CityList.get(0);
+				Headquarters_single BlueHeadquarters = (Headquarters_single) CityList.get(WorldProperty.NumberOfCity+1);
 				boolean RedOcuupied = RedHeadquarters.checkOccupied();
 				boolean BlueOcuupied = BlueHeadquarters.checkOccupied();
 				if ( RedOcuupied || BlueOcuupied ){
@@ -102,7 +102,7 @@ public class World_single {
                                 
 			}
 			
-			// :30 Warriors Fetch Life Elements to their headquarters
+			// :30 Warriors Fetch Life Elements to their Headquarters_single
 			if (WorldClock.getMinute() == 30){
                                 worldController.removeProduceLEdisplay();
                                 worldController.updatePage(currentTime);
@@ -116,7 +116,7 @@ public class World_single {
 				holdBattlesAndWorkAfterBattles();
 			}
 			
-			// :50 Headquarters report Life Elements
+			// :50 Headquarters_single report Life Elements
 			if (WorldClock.getMinute() == 50){
                                 worldController.removeBattleSigns();
                                 worldController.updatePage(currentTime);
@@ -140,8 +140,8 @@ public class World_single {
 		 }
 
 		 //reward army.
-		 Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
-		 Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+		 Headquarters_single RedHeadquarters = (Headquarters_single) CityList.get(0);
+		 Headquarters_single BlueHeadquarters = (Headquarters_single) CityList.get(WorldProperty.NumberOfCity+1);
 		 RedHeadquarters.rewardArmy();
 		 BlueHeadquarters.rewardArmy();
 		 
@@ -160,8 +160,8 @@ public class World_single {
         public static int blueNumLE;
 	public void headquartersReportLifeElements() {
 		//000:50 100 elements in red headquarter
-		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
-		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+		Headquarters_single RedHeadquarters = (Headquarters_single) CityList.get(0);
+		Headquarters_single BlueHeadquarters = (Headquarters_single) CityList.get(WorldProperty.NumberOfCity+1);
                 //redNumLE = RedHeadquarters.LifeElement;
                 //blueNumLE = BlueHeadquarters.LifeElement;
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
@@ -173,8 +173,8 @@ public class World_single {
         public static boolean redWarriorFetchesLE = false;
 	//After March
 	public void warriorsFetchLifeElementsFromCity() {
-		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
-		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+		Headquarters_single RedHeadquarters = (Headquarters_single) CityList.get(0);
+		Headquarters_single BlueHeadquarters = (Headquarters_single) CityList.get(WorldProperty.NumberOfCity+1);
 		
 		for (int i=1;i<=WorldProperty.NumberOfCity;i++){
 			City c = CityList.get(i);
@@ -205,7 +205,7 @@ public class World_single {
 
 	public void ProduceLifeElements(){
 		for (City c: CityList){
-			if (!(c instanceof Headquarters)){
+			if (!(c instanceof Headquarters_single)){
 				c.produceLifeElement();
 			}
 		}
@@ -236,8 +236,8 @@ public class World_single {
 		}
 
 		//Report March Information
-		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
-		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+		Headquarters_single RedHeadquarters = (Headquarters_single) CityList.get(0);
+		Headquarters_single BlueHeadquarters = (Headquarters_single) CityList.get(WorldProperty.NumberOfCity+1);
 		
 		if (RedHeadquarters.checkNewArrival()){
 			warriorReportMarch(RedHeadquarters, RedHeadquarters.getNewArrivedWarrior());
@@ -259,10 +259,10 @@ public class World_single {
 	}
 	
 	public void warriorReportMarch(City c,Warrior w) {
-		if (c instanceof Headquarters){
+		if (c instanceof Headquarters_single){
 			//003:10 red lion 2 reached blue headquarter with 58 elements and force 50
 			System.out.format("%s %s reached %s headquarter with %d elements and force %d\n", 
-					WorldClock.getTime(), w.WarriorNameCard, WorldProperty.PartyNames[((Headquarters)c).getParty()], w.HP, w.AttackValue);
+					WorldClock.getTime(), w.WarriorNameCard, WorldProperty.PartyNames[((Headquarters_single)c).getParty()], w.HP, w.AttackValue);
 		}
 		else {
 			System.out.format("%s %s marched to city %d with %d elements and force %d\n", 

@@ -97,6 +97,9 @@ public class SampleController_single implements Initializable {
     @FXML ImageView c5bluewin;
     @FXML ImageView c5redwin;
     
+    @FXML ImageView blueProdSuccess;
+    @FXML ImageView redProdSuccess;
+    
     @FXML private Image image_hq1Flag = new Image("flag_red.png");
     @FXML private Image image_hq2Flag = new Image("flag_blue.png");
     
@@ -114,8 +117,8 @@ public class SampleController_single implements Initializable {
     @FXML private Image image_battle = new Image("battle.png");
     @FXML private Image image_winBattle = new Image("win.png");
       
-    @FXML private Image possible = new Image("possible.png");
-    @FXML private Image impossible = new Image("impossible.png");
+    @FXML private Image image_success = new Image("success.png");
+    @FXML private Image image_failure = new Image("failure.png");
 
     @FXML private Label displayTime;
     @FXML private Label produceBlue;
@@ -152,21 +155,30 @@ public class SampleController_single implements Initializable {
         produceRed.setText(warriorNameRed);  
 
         if(blueSuccess == true){
+            blueProdSuccess.setImage(image_success); 
             if(warriorNameBlue == "dragon") hq2Blue.setImage(image_dragon_blue);
             if(warriorNameBlue == "ninja") hq2Blue.setImage(image_ninja_blue);
             if(warriorNameBlue == "iceman") hq2Blue.setImage(image_iceman_blue);
             if(warriorNameBlue == "lion") hq2Blue.setImage(image_lion_blue);
             if(warriorNameBlue == "wolf") hq2Blue.setImage(image_wolf_blue);
         }
+        else{
+            blueProdSuccess.setImage(image_failure); 
+        }
         
         if(redSuccess == true){
+            redProdSuccess.setImage(image_success); 
             if(warriorNameRed == "dragon") hq1Red.setImage(image_dragon_red);
             if(warriorNameRed == "ninja") hq1Red.setImage(image_ninja_red);
             if(warriorNameRed == "iceman") hq1Red.setImage(image_iceman_red);
             if(warriorNameRed == "lion") hq1Red.setImage(image_lion_red);
             if(warriorNameRed == "wolf") hq1Red.setImage(image_wolf_red);
         }
+        else{
+            redProdSuccess.setImage(image_failure); 
+        }
     }
+    
 
     @FXML
     private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
@@ -186,10 +198,19 @@ public class SampleController_single implements Initializable {
         this.WorldObject.runGame(currentTime);    
     }
     
+    
+    
+    @FXML
+    public void produceDragon(){
+        WorldObject.userChosenWarrior = 0;
+    }
+    
     @FXML
     public void removeWarriorLabel(){
         produceBlue.setText("");
         produceRed.setText("");
+        blueProdSuccess.setImage(null);
+        redProdSuccess.setImage(null);
     }
     
     @FXML private Image tempBlue = null;

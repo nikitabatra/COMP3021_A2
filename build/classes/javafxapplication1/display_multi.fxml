@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.SampleController_multi">
+    <children>
+      <Label layoutX="14.0" layoutY="14.0" text="World of Warcraft: Assignment 1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="hq1" fitHeight="90.0" fitWidth="113.0" layoutX="22.0" layoutY="251.0" preserveRatio="true" AnchorPane.bottomAnchor="359.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="888.0" AnchorPane.topAnchor="251.0">
+         <image>
+            <Image url="@../castle_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hq2" fitHeight="90.0" fitWidth="90.0" layoutX="837.0" layoutY="250.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city1" fitHeight="93.0" fitWidth="78.0" layoutX="171.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city2" fitHeight="93.0" fitWidth="78.0" layoutX="303.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city3" fitHeight="93.0" fitWidth="78.0" layoutX="437.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city4" fitHeight="93.0" fitWidth="78.0" layoutX="567.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city5" fitHeight="93.0" fitWidth="78.0" layoutX="708.0" layoutY="257.0" preserveRatio="true">
+         <image>
+            <Image url="@../castle_1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="326.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0" text="Time: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+<!--      <Button layoutX="14.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleStartGameA1" prefHeight="27.0" prefWidth="98.0" text="Start Game" />-->
+      <ImageView fx:id="hq2Flag" fitHeight="44.0" fitWidth="31.0" layoutX="867.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image></ImageView>
+      <Button fx:id="startGame" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleStartGameA1" prefHeight="27.0" prefWidth="222.0" text="Move Forward with each click" />
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="26.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="799.0" AnchorPane.topAnchor="446.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../dragon_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../ninja_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../iceman_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../lion_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blueWolf" fitHeight="60.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../wolf_blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@bluePossible" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="252.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../dragon_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../ninja_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../iceman_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../lion_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../wolf_red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@redPossible" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="684.0" layoutY="438.0" prefHeight="135.0" prefWidth="290.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="48.0" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="45.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="103.21875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Party" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="CENTER" wrappingWidth="105.21875" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kill" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+      <Label id="displayTime" fx:id="displayTime" layoutX="378.0" layoutY="125.0" prefHeight="23.0" prefWidth="237.0" text="Click the button to start">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="hq1Flag" fitHeight="38.0" fitWidth="31.0" layoutX="52.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="589.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="250.0" layoutY="589.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="produceBlue" layoutX="26.0" layoutY="616.0" textFill="#3f79dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="produceRed" layoutX="250.0" layoutY="616.0" textFill="#b5121d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="city1Red" fitHeight="44.0" fitWidth="43.0" layoutX="155.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city1Blue" fitHeight="44.0" fitWidth="43.0" layoutX="215.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city2Red" fitHeight="44.0" fitWidth="43.0" layoutX="287.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="346.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city3Red" fitHeight="44.0" fitWidth="43.0" layoutX="422.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city3Blue" fitHeight="44.0" fitWidth="43.0" layoutX="483.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city4Red" fitHeight="44.0" fitWidth="43.0" layoutX="552.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city4Blue" fitHeight="44.0" fitWidth="43.0" layoutX="613.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city5Red" fitHeight="44.0" fitWidth="43.0" layoutX="691.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="city5Blue" fitHeight="44.0" fitWidth="43.0" layoutX="757.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq1Red" fitHeight="44.0" fitWidth="43.0" layoutX="13.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq1Blue" fitHeight="44.0" fitWidth="43.0" layoutX="86.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq2Red" fitHeight="44.0" fitWidth="43.0" layoutX="829.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="hq2Blue" fitHeight="44.0" fitWidth="43.0" layoutX="894.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="C1LE" layoutX="241.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C2LE" layoutX="375.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C3LE" layoutX="508.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C4LE" layoutX="639.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="C5LE" layoutX="781.0" layoutY="242.0" textFill="#4b30d3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="c1battle" fitHeight="33.0" fitWidth="31.0" layoutX="195.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c1bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="234.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c1redwin" fitHeight="33.0" fitWidth="31.0" layoutX="156.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2redwin" fitHeight="33.0" fitWidth="31.0" layoutX="288.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="366.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c2battle" fitHeight="33.0" fitWidth="31.0" layoutX="327.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3battle" fitHeight="33.0" fitWidth="31.0" layoutX="461.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="500.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c3redwin" fitHeight="33.0" fitWidth="31.0" layoutX="422.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4redwin" fitHeight="33.0" fitWidth="31.0" layoutX="552.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="630.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c4battle" fitHeight="33.0" fitWidth="31.0" layoutX="591.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5battle" fitHeight="33.0" fitWidth="31.0" layoutX="732.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="771.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="c5redwin" fitHeight="33.0" fitWidth="31.0" layoutX="693.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="328.0" layoutY="152.0" prefHeight="23.0" prefWidth="189.0" text="Status of Red Team: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="redstatus_fetchLE" layoutX="511.0" layoutY="154.0" prefHeight="19.0" prefWidth="484.0" textFill="#b5121d" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="178.0" prefHeight="23.0" prefWidth="189.0" text="Status of Blue Team: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bluestatus_fetchLE" layoutX="511.0" layoutY="180.0" prefHeight="19.0" prefWidth="476.0" textFill="#3f79dd" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="hq1LE" layoutX="32.0" layoutY="389.0" textFill="#b5121d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="hq2LE" layoutX="851.0" layoutY="389.0" textFill="#3f79dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="436.0" prefHeight="23.0" prefWidth="244.0" text="What would you like to produce?">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="453.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Dragon" />
+      <Button layoutX="566.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Ninja" />
+      <Button layoutX="453.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Iceman" />
+      <Button layoutX="510.0" layoutY="562.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Wolf" />
+      <Button layoutX="568.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Lion" />
+      <Label layoutX="327.0" layoutY="425.0" prefHeight="23.0" prefWidth="31.0" text="You" textFill="#169a40">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="425.0" prefHeight="23.0" prefWidth="78.0" text="Computer" textFill="#169a40">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
