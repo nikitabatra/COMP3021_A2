@@ -16,4 +16,6 @@ public class WorldProperty {
 	public static final int[] BlueProductionOrder={WarriorType.LION, WarriorType.DRAGON, WarriorType.NINJA, WarriorType.ICEMAN, WarriorType.WOLF};
 
 	public static final int rewardNumber = 8;
+        
+        public static boolean cityBattleStatus = false;
 }

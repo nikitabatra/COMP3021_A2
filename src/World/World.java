@@ -3,6 +3,8 @@ package World;
 import java.util.ArrayList;
 
 import Warriors.Warrior;
+import static Warriors.Warrior.deadLocation;
+import static Warriors.Warrior.deadWarrior;
 import Warriors.WarriorType;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -108,13 +110,14 @@ public class World {
 				
 			// :40 Organize Battels (Core function.)
 			if (WorldClock.getMinute() == 40){
+                                worldController.removeFetchLEUpdate();
                                 worldController.updatePage(currentTime);
-                                System.out.println("CHECK IF NO BATTLE: " + checkIfNoBattle);
 				holdBattlesAndWorkAfterBattles();
 			}
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
+                                worldController.removeBattleSigns();
                                 worldController.updatePage(currentTime);
 				headquartersReportLifeElements();	
 			}
@@ -124,16 +127,13 @@ public class World {
                         WorldClock.increase();		
 	}
         
-        public static boolean checkIfNoBattle = true;
-	/**
-	 * 
-	 */
 	public void holdBattlesAndWorkAfterBattles() {
 		for (int index=1; index <= WorldProperty.NumberOfCity; index++){
 			 City c = CityList.get(index);
                          c.organizeBattle();
                          if(c.checkIfBattle == true){
                              worldController.updateBattle(c.CityID);
+                             worldController.showWinner(deadWarrior, deadLocation);
                          }        
 		 }
 
@@ -153,13 +153,15 @@ public class World {
 	/**
 	 * 
 	 */
+
 	public void headquartersReportLifeElements() {
 		//000:50 100 elements in red headquarter
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
-	}
+                worldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
+        }
         
         public static boolean blueWarriorFetchesLE = false;
         public static boolean redWarriorFetchesLE = false;

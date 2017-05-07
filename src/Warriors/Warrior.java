@@ -51,7 +51,7 @@ public abstract class Warrior {
 			City NextCity = World.CityList.get(Location+1);
 			NextCity.addWarrior(this);
 			CurrentCity.removeWarrior(this);
-                        WarriorType.redWarriorLocation = Location;
+                        //WarriorType.redWarriorLocation = Location;
 			Location++;
 			if (Location == WorldProperty.NumberOfCity + 1){
 				Headquarters RedHeadquarters = (Headquarters) World.CityList.get(Location);
@@ -64,7 +64,7 @@ public abstract class Warrior {
 			City NextCity = World.CityList.get(Location-1);
 			NextCity.addWarrior(this);
 			CurrentCity.removeWarrior(this);
-                        WarriorType.blueWarriorLocation = Location;
+                        //WarriorType.blueWarriorLocation = Location;
 			Location--;
 			if (Location == 0){
 				Headquarters BlueHeadquarters = (Headquarters) World.CityList.get(Location);
@@ -93,13 +93,15 @@ public abstract class Warrior {
 		return true;
 	}
 	
-	
 	//Modify this and Wolf.java
+        public static Warrior deadWarrior = null;
+        public static int deadLocation;
 	public boolean getDeathAnnounce(ClassDeathAnnounce da){
 		//Declare enemy's death note
 		System.out.format("%s %s was killed in city %d\n", 
 				World.WorldClock.getTime(),da.DeadWarrior.WarriorNameCard, da.DeadWarrior.Location);
-		
+		deadWarrior = da.DeadWarrior;
+                deadLocation = da.DeadWarrior.Location;
 		//Well, this is needed for the correct order of output.
 		//One more condition: this should be an active attack.
 		if (this instanceof Dragon && this.Party == World.CityList.get(this.Location).activeAttackParty){
@@ -110,7 +112,6 @@ public abstract class Warrior {
 		//Declare here, realized in City.payTribute().
 		System.out.format("%s %s earned %d elements for his headquarter\n", 
 				World.WorldClock.getTime(), this.WarriorNameCard, World.CityList.get(this.Location).LifeElement);
-		
 		
 		//Only Count for active killings
 		if (World.CityList.get(this.Location).activeAttackParty == this.Party){

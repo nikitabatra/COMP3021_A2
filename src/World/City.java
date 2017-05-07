@@ -69,10 +69,8 @@ public class City {
 		}
 		
 		//Both stations have warriors.
-                checkIfBattle = true;
 		Warrior RedWarrior = this.RedWarriorStation.get(0);
 		Warrior BlueWarrior = this.BlueWarriorStation.get(0);
-		
 		
 		if (this.Flag == WorldProperty.RED){
 			activeAttackParty = WorldProperty.RED;
@@ -87,8 +85,10 @@ public class City {
 		}
 		
 		if (this.activeAttackParty == WorldProperty.RED){
+                        checkIfBattle = true;
 			RedWarrior.attack(BlueWarrior);
 		} else if (this.activeAttackParty == WorldProperty.BLUE){
+                        checkIfBattle = true;
 			BlueWarrior.attack(RedWarrior);
 		} else{
 			
@@ -125,5 +125,9 @@ public class City {
 			Status_AfterBattle = false;
 		}
 	}
+
+    boolean checkIfBattle() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }
