@@ -182,7 +182,7 @@ public class Headquarters_single extends City_single{
 				System.err.println("Error: No such Warrior Type in Headquarters.java");
 				return false;
 		}
-		System.out.print("boom2");
+		System.out.println("boom2");
 		if (this.Party == WorldProperty.RED){
 			RedWarriorStation.add(w);
 		} else if (this.Party == WorldProperty.BLUE){

@@ -69,6 +69,7 @@ public class World_single {
                                 worldController.startGameDisplay();
                                 worldController.setWarriorChosenValue();
                                 warriorChosen = worldController.warriorChosen;
+                                
                                 if(worldController.checkClicked == 1){
                                     worldController.submitWarrior.setDisable(true);
                                     worldController.inputWarriorChosen.setDisable(true);
@@ -178,6 +179,8 @@ public class World_single {
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
                 worldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
+                worldController.inputWarriorChosen.setDisable(false);
+                worldController.submitWarrior.setDisable(false);
         }
         
         public static boolean blueWarriorFetchesLE = false;

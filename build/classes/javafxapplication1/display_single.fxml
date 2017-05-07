@@ -62,7 +62,7 @@
             <Image url="@hq2Flag" />
          </image></ImageView>
       <Button fx:id="startGame" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleStartGameA1" prefHeight="27.0" prefWidth="222.0" text="Move Forward with each click" />
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="26.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="799.0" AnchorPane.topAnchor="446.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="232.0" layoutY="437.0" prefHeight="118.0" prefWidth="177.0" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="593.0" AnchorPane.topAnchor="437.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -105,7 +105,7 @@
             </ImageView>
          </children>
       </GridPane>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="252.0" layoutY="446.0" prefHeight="118.0" prefWidth="177.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="25.0" layoutY="437.0" prefHeight="118.0" prefWidth="177.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -148,7 +148,7 @@
             </ImageView>
          </children>
       </GridPane>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="684.0" layoutY="438.0" prefHeight="135.0" prefWidth="290.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="676.0" layoutY="502.0" prefHeight="98.0" prefWidth="222.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="48.0" minWidth="10.0" prefWidth="45.0" />
@@ -162,44 +162,44 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="103.21875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="75.21875">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Party" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Party" textAlignment="CENTER" wrappingWidth="81.21875" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="CENTER" wrappingWidth="105.21875" GridPane.rowIndex="2">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" textAlignment="CENTER" wrappingWidth="79.21875" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER" wrappingWidth="102.21875" GridPane.rowIndex="3">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER" wrappingWidth="85.21875" GridPane.rowIndex="3">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP" textAlignment="CENTER" wrappingWidth="75.21875" GridPane.columnIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack" textAlignment="CENTER" wrappingWidth="81.21875" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kill" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kill" textAlignment="CENTER" wrappingWidth="74.21875" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" textAlignment="CENTER" wrappingWidth="103.21875" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" textAlignment="CENTER" wrappingWidth="80.21875" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
          </children>
@@ -214,22 +214,22 @@
             <Image url="@hq2Flag" />
          </image>
       </ImageView>
-      <Label layoutX="26.0" layoutY="589.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
+      <Label layoutX="232.0" layoutY="580.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="250.0" layoutY="589.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
+      <Label layoutX="23.0" layoutY="580.0" prefHeight="17.0" prefWidth="81.0" text="Producing:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="produceBlue" layoutX="26.0" layoutY="616.0" textFill="#3f79dd">
+      <Label fx:id="produceBlue" layoutX="231.0" layoutY="623.0" textFill="#3f79dd">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="produceRed" layoutX="250.0" layoutY="616.0" textFill="#b5121d">
+      <Label fx:id="produceRed" layoutX="23.0" layoutY="620.0" textFill="#b5121d">
          <font>
             <Font size="18.0" />
          </font>
@@ -318,47 +318,55 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="442.0" layoutY="431.0" prefHeight="61.0" prefWidth="222.0" text="Type in the number for the warrior you want to produce:" wrapText="true">
+      <Label layoutX="445.0" layoutY="422.0" prefHeight="61.0" prefWidth="222.0" text="Type in the number for the warrior you want to produce:" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="327.0" layoutY="425.0" prefHeight="23.0" prefWidth="31.0" text="You" textFill="#169a40">
+      <Label layoutX="100.0" layoutY="416.0" prefHeight="23.0" prefWidth="31.0" text="You" textFill="#169a40">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="425.0" prefHeight="23.0" prefWidth="78.0" text="Computer" textFill="#169a40">
+      <Label layoutX="275.0" layoutY="416.0" prefHeight="23.0" prefWidth="78.0" text="Computer" textFill="#169a40">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="inputWarriorChosen" layoutX="480.0" layoutY="650.0" />
-      <Button fx:id="submitWarrior" layoutX="534.0" layoutY="614.0" mnemonicParsing="false" onAction="#handleSubmitWarrior" text="Submit " />
-      <Label layoutX="503.0" layoutY="486.0" text="Dragon: 1" textFill="#169a40">
+      <TextField fx:id="inputWarriorChosen" layoutX="570.0" layoutY="498.0" prefHeight="27.0" prefWidth="48.0" />
+      <Button fx:id="submitWarrior" layoutX="562.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleSubmitWarrior" text="Submit " />
+      <Label layoutX="471.0" layoutY="483.0" text="Dragon: 0" textFill="#169a40">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="504.0" layoutY="508.0" text="Ninja: 2" textFill="#169a40">
+      <Label layoutX="472.0" layoutY="504.0" text="Ninja: 1" textFill="#169a40">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="443.0" layoutY="528.0" text="Iceman: 3" textFill="#169a40">
+      <Label layoutX="471.0" layoutY="524.0" text="Iceman: 2" textFill="#169a40">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="546.0" layoutY="495.0" text="Lion: 4" textFill="#169a40">
+      <Label layoutX="472.0" layoutY="544.0" text="Lion: 3" textFill="#169a40">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="582.0" layoutY="555.0" text="Wolf: 5" textFill="#169a40">
+      <Label layoutX="471.0" layoutY="567.0" text="Wolf: 4" textFill="#169a40">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Label layoutX="674.0" layoutY="422.0" prefHeight="61.0" prefWidth="105.0" text="You are trying to produce:" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="chosenWarrior" fitHeight="58.0" fitWidth="60.0" layoutX="786.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="alertMessage1" layoutX="234.0" layoutY="202.0" prefHeight="16.0" prefWidth="406.0" textFill="#ee0606" />
+      <Label fx:id="alertMessage2" layoutX="234.0" layoutY="226.0" prefHeight="18.0" prefWidth="406.0" textFill="#ee0606" />
     </children>
 </AnchorPane>

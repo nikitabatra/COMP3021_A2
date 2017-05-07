@@ -10,6 +10,7 @@ import Warriors.Warrior_single;
 
 import World.WorldProperty;
 import World.World_single;
+import static World.World_single.worldController;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
@@ -131,8 +132,9 @@ public class SampleController_single implements Initializable {
     @FXML private Label redstatus_fetchLE;
     @FXML private Label bluestatus_fetchLE;
     
-    
-    
+    @FXML private Label alertMessage1;
+    @FXML private Label alertMessage2;
+
     @FXML
     public void updatePage(String data){
         displayTime.setText(data);
@@ -148,25 +150,43 @@ public class SampleController_single implements Initializable {
     public static int warriorChosen;
     @FXML public TextField inputWarriorChosen;
     @FXML public Button submitWarrior;
-    
-    
+   
+    @FXML ImageView chosenWarrior = new ImageView();
     public static int checkClicked = 0;
     @FXML
     public void handleSubmitWarrior(ActionEvent event){
-        System.out.println("WARRIOR CHOSEN ISSSSSS at handle button: " + warriorChosen);
+        alertMessage1.setText("");
+        alertMessage2.setText("");
         warriorChosen = parseInt(inputWarriorChosen.getText());
+        
+        if(warriorChosen == 0){
+           chosenWarrior.setImage(image_dragon_red);
+        }
+        if(warriorChosen == 1){
+           chosenWarrior.setImage(image_ninja_red);
+        }
+        if(warriorChosen == 2){
+           chosenWarrior.setImage(image_iceman_red);
+        }
+        if(warriorChosen == 3){
+           chosenWarrior.setImage(image_lion_red);
+        }
+        if(warriorChosen == 4){
+           chosenWarrior.setImage(image_wolf_red);
+        }
         checkClicked = 1;
     }
-    
+
     @FXML
     public void setWarriorChosenValue(){
-        warriorChosen = parseInt(inputWarriorChosen.getText()) - 1;
-        System.out.println("WARRIOR CHOSEN ISSSSSS at set warrior value: " + warriorChosen);
+        warriorChosen = parseInt(inputWarriorChosen.getText());
+        System.out.println("WARRIOR CHOSEN ISSSSSS :  " + warriorChosen);
     }
     
     
     @FXML
     public void updateProduceWarriors(int blueType, int redType, boolean blueSuccess, boolean redSuccess){
+        System.out.println("red type and blue type warrior numbers woohoooo : " + redType + " " + blueType);
         String warriorNameBlue = WarriorType.WarriorNames[blueType];
         String warriorNameRed = WarriorType.WarriorNames[redType];
         produceBlue.setText(warriorNameBlue);
@@ -181,6 +201,7 @@ public class SampleController_single implements Initializable {
             if(warriorNameBlue == "wolf") hq2Blue.setImage(image_wolf_blue);
         }
         else{
+            alertMessage1.setText("Not enough Life Elements to produce blue warrior!");
             blueProdSuccess.setImage(image_failure); 
         }
         
@@ -193,6 +214,7 @@ public class SampleController_single implements Initializable {
             if(warriorNameRed == "wolf") hq1Red.setImage(image_wolf_red);
         }
         else{
+            alertMessage2.setText("Not enough Life Elements to produce red warrior!");
             redProdSuccess.setImage(image_failure); 
         }
     }
@@ -225,6 +247,8 @@ public class SampleController_single implements Initializable {
         produceRed.setText("");
         blueProdSuccess.setImage(null);
         redProdSuccess.setImage(null);
+        chosenWarrior.setImage(null);
+        
     }
     
     @FXML private Image tempBlue = null;
@@ -444,6 +468,7 @@ public class SampleController_single implements Initializable {
     public void updateHQLE(int redNum, int blueNum){
         hq1LE.setText("LE: " + redNum);
         hq2LE.setText("LE: " + blueNum);
+        alertMessage1.setText("Please enter the warrior number and click submit before clicking");
     }
     
     @FXML
