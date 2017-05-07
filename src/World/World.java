@@ -60,6 +60,7 @@ public class World {
                     if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
+                                worldController.removeHQLE();
                                 worldController.updatePage(currentTime);
                                 worldController.startGameDisplay();
                                 
@@ -119,11 +120,11 @@ public class World {
 			if (WorldClock.getMinute() == 50){
                                 worldController.removeBattleSigns();
                                 worldController.updatePage(currentTime);
-				headquartersReportLifeElements();	
+				headquartersReportLifeElements();
+                                
 			}
                         timeCount = WorldClock.getTime();
                         keepCount++;
-                        worldController.removeHQLE();
                     }
                         WorldClock.increase();		
 	}
@@ -154,11 +155,15 @@ public class World {
 	/**
 	 * 
 	 */
-
+        
+        public static int redNumLE;
+        public static int blueNumLE;
 	public void headquartersReportLifeElements() {
 		//000:50 100 elements in red headquarter
 		Headquarters RedHeadquarters = (Headquarters) CityList.get(0);
 		Headquarters BlueHeadquarters = (Headquarters) CityList.get(WorldProperty.NumberOfCity+1);
+                //redNumLE = RedHeadquarters.LifeElement;
+                //blueNumLE = BlueHeadquarters.LifeElement;
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
                 worldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);

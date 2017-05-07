@@ -106,7 +106,44 @@ public class FXMLDocumentController implements Initializable {
            e.printStackTrace();
           }
 }
+   
+    @FXML
+    private void handleSecondButtonAction(ActionEvent event) throws FileNotFoundException {
+        System.out.println("You clicked the second button!");
+        
+        try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_single.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Input Parameters");
+                
+                Scene scene1 = new Scene(root1, 400, 550);
+                stage.setScene(scene1);
+                stage.show();
+                
+        } catch(Exception e) {
+           e.printStackTrace();
+          }
+    }
     
+    @FXML
+    private void handleThirdButtonAction(ActionEvent event) {
+        System.out.println("You clicked the third button!");
+        
+        try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_multi.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("World of Warcraft: Multi-Player");
+                Scene scene1 = new Scene(root1, 400, 550);
+                stage.setScene(scene1);
+                
+                stage.show();
+        } catch(Exception e) {
+           e.printStackTrace();
+          }
+    }
     
     
     @FXML
@@ -186,11 +223,13 @@ public class FXMLDocumentController implements Initializable {
            e.printStackTrace();
           }
     }
-   
+    
     @FXML
-    private void handleSecondButtonAction(ActionEvent event) throws FileNotFoundException {
-        System.out.println("You clicked the second button!");
-        
+    private void handleInputParametersOption2(ActionEvent event) { // input page
+
+        System.out.println("You clicked the input submit button!");
+        // Hide window after click : 
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         try {
                 numLE = parseInt(inputLE.getText());
                 numT = parseInt(inputT.getText());
@@ -205,34 +244,138 @@ public class FXMLDocumentController implements Initializable {
                 l_AV = parseInt(inputLAV.getText());
                 w_AV = parseInt(inputWAV.getText());
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("single_player.fxml"));
+		boolean validLE = numLE >= 1 && numLE <= 1000;
+		boolean validT = numT >= 0 && numT <= 10000;
+			
+		if (!(validLE && validT)){
+			System.out.println("Error: M,T not valid.");
+			System.exit(0);
+		}
+                System.out.println(numLE + " " + numT);
+                        
+                boolean validDHP = d_HP >= 0 && d_HP <= 100;
+		boolean validNHP = n_HP >= 0 && n_HP <= 100;
+                boolean validIHP = i_HP >= 0 && i_HP <= 100;
+                boolean validLHP = l_HP >= 0 && l_HP <= 100;
+                 boolean validWHP = w_HP >= 0 && w_HP <= 100;
+                        
+                 if(!(validDHP && validNHP && validIHP && validLHP && validWHP)){
+                        System.out.println("Error: HP value input not valid.");
+			System.exit(0);
+                    }
+                System.out.println(d_HP + " " + n_HP + " " + i_HP + " " + l_HP + " " + w_HP);
+                        
+                boolean validDAV = d_AV >= 0 && d_AV <= 100;
+                boolean validNAV = n_AV >= 0 && n_AV <= 100;
+                boolean validIAV = i_AV >= 0 && i_AV <= 100;
+                boolean validLAV = l_AV >= 0 && l_AV <= 100;
+                boolean validWAV = w_AV >= 0 && w_AV <= 100;
+                        
+                if(!(validDHP && validNHP && validIHP && validLHP && validWHP)){
+                        System.out.println("Error:  Attack Value input not valid.");
+			System.exit(0);
+                }
+                System.out.println(d_AV + " " + n_AV + " " + i_AV + " " + l_AV + " " + w_AV);
+
+                WarriorType.HP_LIST = new int[]{d_HP,n_HP,i_HP,l_HP,w_HP};
+                WarriorType.ATTACK_LIST = new int[]{d_AV,n_AV,i_AV,l_AV,w_AV};
+                WorldProperty.InitLifeElements = numLE;
+                WorldProperty.MaxMinutes = numT;
+
+                 
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("display_single.fxml"));
+                worldController = fxmlLoader.getController();
+                
                 Parent root1 = (Parent) fxmlLoader.load();
+                
                 Stage stage = new Stage();
                 stage.setTitle("World of Warcraft: Single-Player");
-                
-                Scene scene1 = new Scene(root1, 800, 600);
-                stage.setScene(scene1);
+                Scene scene1 = new Scene(root1, 1000, 700);
+                stage.setScene(scene1);                
                 stage.show();
                 
+      
         } catch(Exception e) {
+           System.out.println("Error: There should be 12 elements in total.");
            e.printStackTrace();
           }
     }
     
     @FXML
-    private void handleThirdButtonAction(ActionEvent event) {
-        System.out.println("You clicked the third button!");
-        
+    private void handleInputParametersOption3(ActionEvent event) { // input page
+
+        System.out.println("You clicked the input submit button!");
+        // Hide window after click : 
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("multi_player.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setTitle("World of Warcraft: Multi-Player");
-                Scene scene1 = new Scene(root1, 1000, 700);
-                stage.setScene(scene1);
+                numLE = parseInt(inputLE.getText());
+                numT = parseInt(inputT.getText());
+                d_HP = parseInt(inputDHP.getText());
+                n_HP = parseInt(inputNHP.getText());
+                i_HP = parseInt(inputIHP.getText());
+                l_HP = parseInt(inputLHP.getText());
+                w_HP = parseInt(inputWHP.getText());
+                d_AV = parseInt(inputDAV.getText());
+                n_AV = parseInt(inputNAV.getText());
+                i_AV = parseInt(inputIAV.getText());
+                l_AV = parseInt(inputLAV.getText());
+                w_AV = parseInt(inputWAV.getText());
+
+		boolean validLE = numLE >= 1 && numLE <= 1000;
+		boolean validT = numT >= 0 && numT <= 10000;
+			
+		if (!(validLE && validT)){
+			System.out.println("Error: M,T not valid.");
+			System.exit(0);
+		}
+                System.out.println(numLE + " " + numT);
+                        
+                boolean validDHP = d_HP >= 0 && d_HP <= 100;
+		boolean validNHP = n_HP >= 0 && n_HP <= 100;
+                boolean validIHP = i_HP >= 0 && i_HP <= 100;
+                boolean validLHP = l_HP >= 0 && l_HP <= 100;
+                 boolean validWHP = w_HP >= 0 && w_HP <= 100;
+                        
+                 if(!(validDHP && validNHP && validIHP && validLHP && validWHP)){
+                        System.out.println("Error: HP value input not valid.");
+			System.exit(0);
+                    }
+                System.out.println(d_HP + " " + n_HP + " " + i_HP + " " + l_HP + " " + w_HP);
+                        
+                boolean validDAV = d_AV >= 0 && d_AV <= 100;
+                boolean validNAV = n_AV >= 0 && n_AV <= 100;
+                boolean validIAV = i_AV >= 0 && i_AV <= 100;
+                boolean validLAV = l_AV >= 0 && l_AV <= 100;
+                boolean validWAV = w_AV >= 0 && w_AV <= 100;
+                        
+                if(!(validDHP && validNHP && validIHP && validLHP && validWHP)){
+                        System.out.println("Error:  Attack Value input not valid.");
+			System.exit(0);
+                }
+                System.out.println(d_AV + " " + n_AV + " " + i_AV + " " + l_AV + " " + w_AV);
+
+                WarriorType.HP_LIST = new int[]{d_HP,n_HP,i_HP,l_HP,w_HP};
+                WarriorType.ATTACK_LIST = new int[]{d_AV,n_AV,i_AV,l_AV,w_AV};
+                WorldProperty.InitLifeElements = numLE;
+                WorldProperty.MaxMinutes = numT;
+
+                 
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("display_single.fxml"));
+                worldController = fxmlLoader.getController();
                 
+                Parent root1 = (Parent) fxmlLoader.load();
+                
+                Stage stage = new Stage();
+                stage.setTitle("World of Warcraft: Single-Player");
+                Scene scene1 = new Scene(root1, 1000, 700);
+                stage.setScene(scene1);                
                 stage.show();
+                
+      
         } catch(Exception e) {
+           System.out.println("Error: There should be 12 elements in total.");
            e.printStackTrace();
           }
     }

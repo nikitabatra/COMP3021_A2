@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Label layoutX="21.0" layoutY="14.0" text="Please input desired parameters:" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="169.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleInputParametersOption2" text="Submit" />
+      <TextField fx:id="inputLE" layoutX="195.0" layoutY="76.0" onAction="#handleInputParametersOption1" prefHeight="27.0" prefWidth="79.0" />
+      <Label layoutX="21.0" layoutY="80.0" text="Number of Life Elements">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="120.0" text="End time of game (mins)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputT" layoutX="195.0" layoutY="116.0" prefHeight="27.0" prefWidth="80.0" />
+      <Label layoutX="21.0" layoutY="163.0" text="Number of cities: 5 (fixed)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="272.0" text="Dragon HP ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputDHP" layoutX="106.0" layoutY="268.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="381.0" layoutY="81.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="281.0" layoutY="81.0" text="[0&lt;= LE &lt;= 1000]">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="211.0" text="Hit Points ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputNHP" layoutX="106.0" layoutY="305.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="19.0" layoutY="309.0" text="Ninja HP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="346.0" text="Iceman HP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputIHP" layoutX="105.0" layoutY="342.0" prefHeight="27.0" prefWidth="37.0" />
+      <TextField fx:id="inputLHP" layoutX="105.0" layoutY="379.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="18.0" layoutY="383.0" text="Lion HP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="420.0" text="Wolf HP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputWHP" layoutX="105.0" layoutY="416.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="251.0" layoutY="211.0" text="Attack Values">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputWAV" layoutX="336.0" layoutY="417.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="249.0" layoutY="421.0" text="Wolf AV">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="249.0" layoutY="384.0" text="Lion AV">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputLAV" layoutX="336.0" layoutY="380.0" prefHeight="27.0" prefWidth="37.0" />
+      <TextField fx:id="inputIAV" layoutX="336.0" layoutY="343.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="249.0" layoutY="347.0" text="Iceman AV">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="249.0" layoutY="310.0" text="Ninja AV">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputNAV" layoutX="336.0" layoutY="306.0" prefHeight="27.0" prefWidth="37.0" />
+      <TextField fx:id="inputDAV" layoutX="336.0" layoutY="269.0" prefHeight="27.0" prefWidth="37.0" />
+      <Label layoutX="249.0" layoutY="273.0" text="Dragon AV">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="281.0" layoutY="120.0" text="[0&lt;= T &lt;= 1000]">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="229.0" text="[0&lt;= HP &lt;= 1000]">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="250.0" layoutY="229.0" text="[0&lt;= AV &lt;= 1000]">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

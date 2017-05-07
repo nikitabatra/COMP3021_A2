@@ -417,6 +417,7 @@ public class SampleController implements Initializable {
         hq2LE.setText("");
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
