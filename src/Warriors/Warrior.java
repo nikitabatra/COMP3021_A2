@@ -1,8 +1,6 @@
 package Warriors;
 
 import World.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public abstract class Warrior {
 	public int HP;
@@ -41,17 +39,15 @@ public abstract class Warrior {
 		
 		System.out.println(World.WorldClock.getTime()+" "
 				+this.WarriorNameCard+" born");
-                
 	}
 	
 	public boolean move(){
 		MovedDistance++;
-		if (this.Party == WorldProperty.RED && this.Location < WorldProperty.NumberOfCity + 1){
+		if (this.Party == WorldProperty.RED && this.Location < WorldProperty.NumberOfCity + 1  ){
 			City CurrentCity =  World.CityList.get(Location);
 			City NextCity = World.CityList.get(Location+1);
 			NextCity.addWarrior(this);
 			CurrentCity.removeWarrior(this);
-                        //WarriorType.redWarriorLocation = Location;
 			Location++;
 			if (Location == WorldProperty.NumberOfCity + 1){
 				Headquarters RedHeadquarters = (Headquarters) World.CityList.get(Location);
@@ -64,7 +60,6 @@ public abstract class Warrior {
 			City NextCity = World.CityList.get(Location-1);
 			NextCity.addWarrior(this);
 			CurrentCity.removeWarrior(this);
-                        //WarriorType.blueWarriorLocation = Location;
 			Location--;
 			if (Location == 0){
 				Headquarters BlueHeadquarters = (Headquarters) World.CityList.get(Location);
@@ -92,6 +87,7 @@ public abstract class Warrior {
 		
 		return true;
 	}
+	
 	
 	//Modify this and Wolf.java
         public static Warrior deadWarrior = null;

@@ -51,10 +51,7 @@ public class FXMLDocumentController implements Initializable {
     static public SampleController worldController;
     
     @FXML Label displayTime;
-    
-    @FXML
-    private Label myName;
-    private Label myID;
+
     int numLE, numT;
     int numCities = 5;
     int d_HP, n_HP, i_HP, l_HP, w_HP;

@@ -5,17 +5,14 @@
  */
 package javafxapplication1;
 
-import Warriors.Warrior;
 import Warriors.WarriorType;
-import World.Headquarters;
-import World.World_single;
-import static World.World.CityList;
-import static World.World.WorldClock;
-import static World.World.timeCount;
-import static World.World.worldController;
+import Warriors.Warrior_single;
+
 import World.WorldProperty;
+import World.World_single;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -25,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -147,6 +145,26 @@ public class SampleController_single implements Initializable {
         hq2Flag.setImage(image_hq2Flag);
     }
     
+    public static int warriorChosen;
+    @FXML public TextField inputWarriorChosen;
+    @FXML public Button submitWarrior;
+    
+    
+    public static int checkClicked = 0;
+    @FXML
+    public void handleSubmitWarrior(ActionEvent event){
+        System.out.println("WARRIOR CHOSEN ISSSSSS at handle button: " + warriorChosen);
+        warriorChosen = parseInt(inputWarriorChosen.getText());
+        checkClicked = 1;
+    }
+    
+    @FXML
+    public void setWarriorChosenValue(){
+        warriorChosen = parseInt(inputWarriorChosen.getText()) - 1;
+        System.out.println("WARRIOR CHOSEN ISSSSSS at set warrior value: " + warriorChosen);
+    }
+    
+    
     @FXML
     public void updateProduceWarriors(int blueType, int redType, boolean blueSuccess, boolean redSuccess){
         String warriorNameBlue = WarriorType.WarriorNames[blueType];
@@ -179,9 +197,12 @@ public class SampleController_single implements Initializable {
         }
     }
     
+    @FXML
+    private Button startGame;
 
     @FXML
     private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
+
         displayTime.setText("Game End");
         
         if(WorldObject.checkOccupied == true){
@@ -195,14 +216,7 @@ public class SampleController_single implements Initializable {
                 System.out.println("Game has been started!");
         }
         String currentTime = this.WorldObject.WorldClock.getTime();
-        this.WorldObject.runGame(currentTime);    
-    }
-    
-    
-    
-    @FXML
-    public void produceDragon(){
-        WorldObject.userChosenWarrior = 0;
+        this.WorldObject.runGame(currentTime);  
     }
     
     @FXML
@@ -357,7 +371,7 @@ public class SampleController_single implements Initializable {
     }
     
     @FXML
-    public void showWinner(Warrior w, int Location){
+    public void showWinner(Warrior_single w, int Location){
         
         if(w.Party == WorldProperty.RED){
             if(Location == 1){

@@ -318,16 +318,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="441.0" layoutY="436.0" prefHeight="23.0" prefWidth="244.0" text="What would you like to produce?">
+      <Label layoutX="442.0" layoutY="431.0" prefHeight="61.0" prefWidth="222.0" text="Type in the number for the warrior you want to produce:" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="produceDragon" layoutX="453.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Dragon" />
-      <Button fx:id="produceNinja" layoutX="566.0" layoutY="471.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Ninja" />
-      <Button fx:id="produceIceman" layoutX="453.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Iceman" />
-      <Button fx:id="produceWolf" layoutX="510.0" layoutY="562.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Wolf" />
-      <Button fx:id="produceLion" layoutX="568.0" layoutY="517.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Lion" />
       <Label layoutX="327.0" layoutY="425.0" prefHeight="23.0" prefWidth="31.0" text="You" textFill="#169a40">
          <font>
             <Font size="15.0" />
@@ -336,6 +331,33 @@
       <Label layoutX="69.0" layoutY="425.0" prefHeight="23.0" prefWidth="78.0" text="Computer" textFill="#169a40">
          <font>
             <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputWarriorChosen" layoutX="480.0" layoutY="650.0" />
+      <Button fx:id="submitWarrior" layoutX="534.0" layoutY="614.0" mnemonicParsing="false" onAction="#handleSubmitWarrior" text="Submit " />
+      <Label layoutX="503.0" layoutY="486.0" text="Dragon: 1" textFill="#169a40">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="504.0" layoutY="508.0" text="Ninja: 2" textFill="#169a40">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="528.0" text="Iceman: 3" textFill="#169a40">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="546.0" layoutY="495.0" text="Lion: 4" textFill="#169a40">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="582.0" layoutY="555.0" text="Wolf: 5" textFill="#169a40">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
     </children>
