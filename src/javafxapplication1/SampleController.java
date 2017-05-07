@@ -274,7 +274,6 @@ public class SampleController implements Initializable {
                 hq2Red.setImage(tempRed);
             }  
         } 
-        
     }
     
     @FXML
@@ -412,6 +411,11 @@ public class SampleController implements Initializable {
         hq2LE.setText("LE: " + blueNum);
     }
     
+    @FXML
+    public void removeHQLE(){
+        hq1LE.setText("");
+        hq2LE.setText("");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -123,6 +123,7 @@ public class World {
 			}
                         timeCount = WorldClock.getTime();
                         keepCount++;
+                        worldController.removeHQLE();
                     }
                         WorldClock.increase();		
 	}
