@@ -5,17 +5,15 @@
  */
 package javafxapplication1;
 
-import Warriors.Warrior;
 import Warriors.WarriorType;
-import World.Headquarters;
-import World.World_multi;
-import static World.World.CityList;
-import static World.World.WorldClock;
-import static World.World.timeCount;
-import static World.World.worldController;
+import Warriors.Warrior_multi;
+
 import World.WorldProperty;
+import World.World_multi;
+import static World.World_multi.multiWorldController;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -25,6 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -33,7 +32,7 @@ import javafx.scene.image.ImageView;
  * @author nikitabatra
  */
 public class SampleController_multi implements Initializable {
-    
+
     World_multi WorldObject = null;
     public SampleController_multi getSampleController(){
         return this;
@@ -97,6 +96,9 @@ public class SampleController_multi implements Initializable {
     @FXML ImageView c5bluewin;
     @FXML ImageView c5redwin;
     
+    @FXML ImageView blueProdSuccess;
+    @FXML ImageView redProdSuccess;
+    
     @FXML private Image image_hq1Flag = new Image("flag_red.png");
     @FXML private Image image_hq2Flag = new Image("flag_blue.png");
     
@@ -114,8 +116,8 @@ public class SampleController_multi implements Initializable {
     @FXML private Image image_battle = new Image("battle.png");
     @FXML private Image image_winBattle = new Image("win.png");
       
-    @FXML private Image possible = new Image("possible.png");
-    @FXML private Image impossible = new Image("impossible.png");
+    @FXML private Image image_success = new Image("success.png");
+    @FXML private Image image_failure = new Image("failure.png");
 
     @FXML private Label displayTime;
     @FXML private Label produceBlue;
@@ -130,8 +132,9 @@ public class SampleController_multi implements Initializable {
     @FXML private Label redstatus_fetchLE;
     @FXML private Label bluestatus_fetchLE;
     
-    
-    
+    @FXML private Label alertMessage1;
+    @FXML private Label alertMessage2;
+
     @FXML
     public void updatePage(String data){
         displayTime.setText(data);
@@ -144,32 +147,84 @@ public class SampleController_multi implements Initializable {
         hq2Flag.setImage(image_hq2Flag);
     }
     
+    public static int warriorChosen;
+    @FXML public TextField inputWarriorChosen;
+    @FXML public Button submitWarrior;
+   
+    @FXML ImageView chosenWarrior = new ImageView();
+    public static int checkClicked = 0;
+    @FXML
+    public void handleSubmitWarrior(ActionEvent event){
+        alertMessage1.setText("");
+        alertMessage2.setText("");
+        warriorChosen = parseInt(inputWarriorChosen.getText());
+        
+        if(warriorChosen == 0){
+           chosenWarrior.setImage(image_dragon_red);
+        }
+        if(warriorChosen == 1){
+           chosenWarrior.setImage(image_ninja_red);
+        }
+        if(warriorChosen == 2){
+           chosenWarrior.setImage(image_iceman_red);
+        }
+        if(warriorChosen == 3){
+           chosenWarrior.setImage(image_lion_red);
+        }
+        if(warriorChosen == 4){
+           chosenWarrior.setImage(image_wolf_red);
+        }
+        checkClicked = 1;
+    }
+
+    @FXML
+    public void setWarriorChosenValue(){
+        warriorChosen = parseInt(inputWarriorChosen.getText());
+        System.out.println("WARRIOR CHOSEN ISSSSSS :  " + warriorChosen);
+    }
+    
+    
     @FXML
     public void updateProduceWarriors(int blueType, int redType, boolean blueSuccess, boolean redSuccess){
+        System.out.println("red type and blue type warrior numbers woohoooo : " + redType + " " + blueType);
         String warriorNameBlue = WarriorType.WarriorNames[blueType];
         String warriorNameRed = WarriorType.WarriorNames[redType];
         produceBlue.setText(warriorNameBlue);
         produceRed.setText(warriorNameRed);  
 
         if(blueSuccess == true){
+            blueProdSuccess.setImage(image_success); 
             if(warriorNameBlue == "dragon") hq2Blue.setImage(image_dragon_blue);
             if(warriorNameBlue == "ninja") hq2Blue.setImage(image_ninja_blue);
             if(warriorNameBlue == "iceman") hq2Blue.setImage(image_iceman_blue);
             if(warriorNameBlue == "lion") hq2Blue.setImage(image_lion_blue);
             if(warriorNameBlue == "wolf") hq2Blue.setImage(image_wolf_blue);
         }
+        else{
+            alertMessage1.setText("Not enough Life Elements to produce blue warrior!");
+            blueProdSuccess.setImage(image_failure); 
+        }
         
         if(redSuccess == true){
+            redProdSuccess.setImage(image_success); 
             if(warriorNameRed == "dragon") hq1Red.setImage(image_dragon_red);
             if(warriorNameRed == "ninja") hq1Red.setImage(image_ninja_red);
             if(warriorNameRed == "iceman") hq1Red.setImage(image_iceman_red);
             if(warriorNameRed == "lion") hq1Red.setImage(image_lion_red);
             if(warriorNameRed == "wolf") hq1Red.setImage(image_wolf_red);
         }
+        else{
+            alertMessage2.setText("Not enough Life Elements to produce red warrior!");
+            redProdSuccess.setImage(image_failure); 
+        }
     }
+    
+    @FXML
+    private Button startGame;
 
     @FXML
     private void handleStartGameA1(ActionEvent event) throws InterruptedException, IOException{ // When startgame is selected
+
         displayTime.setText("Game End");
         
         if(WorldObject.checkOccupied == true){
@@ -183,13 +238,17 @@ public class SampleController_multi implements Initializable {
                 System.out.println("Game has been started!");
         }
         String currentTime = this.WorldObject.WorldClock.getTime();
-        this.WorldObject.runGame(currentTime);    
+        this.WorldObject.runGame(currentTime);  
     }
     
     @FXML
     public void removeWarriorLabel(){
         produceBlue.setText("");
         produceRed.setText("");
+        blueProdSuccess.setImage(null);
+        redProdSuccess.setImage(null);
+        chosenWarrior.setImage(null);
+        
     }
     
     @FXML private Image tempBlue = null;
@@ -336,7 +395,7 @@ public class SampleController_multi implements Initializable {
     }
     
     @FXML
-    public void showWinner(Warrior w, int Location){
+    public void showWinner(Warrior_multi w, int Location){
         
         if(w.Party == WorldProperty.RED){
             if(Location == 1){
@@ -409,6 +468,7 @@ public class SampleController_multi implements Initializable {
     public void updateHQLE(int redNum, int blueNum){
         hq1LE.setText("LE: " + redNum);
         hq2LE.setText("LE: " + blueNum);
+        alertMessage1.setText("Please enter the warrior number and click submit before clicking");
     }
     
     @FXML

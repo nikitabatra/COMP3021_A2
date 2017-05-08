@@ -27,7 +27,7 @@ public class World_single {
 	//Cities start from Red Headquarters and end with Blue Headquarters
 	public static ArrayList<City_single> CityList;
         public static String timeCount = "";
-        public static SampleController_single worldController;
+        public static SampleController_single singleWorldController;
         public static boolean checkOccupied = false;
                 
                 
@@ -35,8 +35,8 @@ public class World_single {
             Application.launch(JavaFXApplication1.class, args);
         }
 	
-	public World_single(SampleController_single worldController){
-		this.worldController = worldController;
+	public World_single(SampleController_single singleWorldController){
+		this.singleWorldController = singleWorldController;
 		//initialize clock 
 		WorldClock = new Clock();
 		
@@ -62,17 +62,17 @@ public class World_single {
                     if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
-                                worldController.submitWarrior.setDisable(false);
-                                worldController.inputWarriorChosen.setDisable(false);
-                                worldController.removeHQLE();
-                                worldController.updatePage(currentTime);
-                                worldController.startGameDisplay();
-                                worldController.setWarriorChosenValue();
-                                warriorChosen = worldController.warriorChosen;
+                                singleWorldController.submitWarrior.setDisable(false);
+                                singleWorldController.inputWarriorChosen.setDisable(false);
+                                singleWorldController.removeHQLE();
+                                singleWorldController.updatePage(currentTime);
+                                singleWorldController.startGameDisplay();
+                                singleWorldController.setWarriorChosenValue();
+                                warriorChosen = singleWorldController.warriorChosen;
                                 
-                                if(worldController.checkClicked == 1){
-                                    worldController.submitWarrior.setDisable(true);
-                                    worldController.inputWarriorChosen.setDisable(true);
+                                if(singleWorldController.checkClicked == 1){
+                                    singleWorldController.submitWarrior.setDisable(true);
+                                    singleWorldController.inputWarriorChosen.setDisable(true);
                                 }
                                 
                                 ((Headquarters_single)CityList.get(0)).tryToProduceWarrior();
@@ -83,12 +83,12 @@ public class World_single {
                                 boolean blueSuccess = ((Headquarters_single)CityList.get(0)).blueProductionSuccess;
                                 boolean redSuccess = ((Headquarters_single)CityList.get(WorldProperty.NumberOfCity+1)).redProductionSuccess;			
                                 
-                                worldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
+                                singleWorldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){
-                                  worldController.removeWarriorLabel();
-                                  worldController.updatePage(currentTime);
+                                  singleWorldController.removeWarriorLabel();
+                                  singleWorldController.updatePage(currentTime);
                                 
 				marchWarriors();
 				
@@ -107,30 +107,30 @@ public class World_single {
 			}
 			// :20 Produce Life Elements
 			if (WorldClock.getMinute() == 20){
-                                worldController.updatePage(currentTime);
+                                singleWorldController.updatePage(currentTime);
 				ProduceLifeElements();
-                                worldController.updateProduceLE();
+                                singleWorldController.updateProduceLE();
                                 
 			}
 			
 			// :30 Warriors Fetch Life Elements to their headquarters
 			if (WorldClock.getMinute() == 30){
-                                worldController.removeProduceLEdisplay();
-                                worldController.updatePage(currentTime);
+                                singleWorldController.removeProduceLEdisplay();
+                                singleWorldController.updatePage(currentTime);
                                 warriorsFetchLifeElementsFromCity();
 			}
 				
 			// :40 Organize Battels (Core function.)
 			if (WorldClock.getMinute() == 40){
-                                worldController.removeFetchLEUpdate();
-                                worldController.updatePage(currentTime);
+                                singleWorldController.removeFetchLEUpdate();
+                                singleWorldController.updatePage(currentTime);
 				holdBattlesAndWorkAfterBattles();
 			}
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
-                                worldController.removeBattleSigns();
-                                worldController.updatePage(currentTime);
+                                singleWorldController.removeBattleSigns();
+                                singleWorldController.updatePage(currentTime);
 				headquartersReportLifeElements();
                                 
 			}
@@ -146,8 +146,8 @@ public class World_single {
 			 City_single c = CityList.get(index);
                          c.organizeBattle();
                          if(c.checkIfBattle == true){
-                             worldController.updateBattle(c.CityID);
-                             worldController.showWinner(deadWarrior, deadLocation);
+                             singleWorldController.updateBattle(c.CityID);
+                             singleWorldController.showWinner(deadWarrior, deadLocation);
                          }        
 		 }
 
@@ -178,9 +178,9 @@ public class World_single {
                 //blueNumLE = BlueHeadquarters.LifeElement;
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
-                worldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
-                worldController.inputWarriorChosen.setDisable(false);
-                worldController.submitWarrior.setDisable(false);
+                singleWorldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
+                singleWorldController.inputWarriorChosen.setDisable(false);
+                singleWorldController.submitWarrior.setDisable(false);
         }
         
         public static boolean blueWarriorFetchesLE = false;
@@ -199,7 +199,7 @@ public class World_single {
 			//Red Fetch
 			else if (c.BlueWarriorStation.isEmpty()){
 				Warrior_single w = c.RedWarriorStation.get(0);
-                                worldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
+                                singleWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
 				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(), w.WarriorNameCard,c.LifeElement);
 				RedHeadquarters.addLifeElement(c.popLifeElements());
@@ -207,7 +207,7 @@ public class World_single {
 			else if (c.RedWarriorStation.isEmpty()){
 
 				Warrior_single w = c.BlueWarriorStation.get(0);
-                                worldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
+                                singleWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
 				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(),w.WarriorNameCard,c.LifeElement);
 				BlueHeadquarters.addLifeElement(c.popLifeElements());
@@ -236,7 +236,7 @@ public class World_single {
 			while (!city.RedWarriorStation.isEmpty()){
                                 int redMoveTo = city.RedWarriorStation.get(0).Location + 1;                              
 				city.RedWarriorStation.get(0).move();
-                                worldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
+                                singleWorldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
 			}
 		}
 		//March Blue Warriors.
@@ -245,7 +245,7 @@ public class World_single {
 			while (!city.BlueWarriorStation.isEmpty()){
                                 int blueMoveTo = city.BlueWarriorStation.get(0).Location - 1;
 				city.BlueWarriorStation.get(0).move();
-                                worldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
+                                singleWorldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
 			}
 		}
 

@@ -51,7 +51,7 @@
             <Image url="@../castle_1.png" />
          </image>
       </ImageView>
-      <Label layoutX="326.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0" text="Time: ">
+      <Label layoutX="335.0" layoutY="125.0" prefHeight="23.0" prefWidth="59.0" text="Time: ">
          <font>
             <Font size="18.0" />
          </font>
@@ -204,7 +204,7 @@
             </Text>
          </children>
       </GridPane>
-      <Label id="displayTime" fx:id="displayTime" layoutX="378.0" layoutY="125.0" prefHeight="23.0" prefWidth="237.0" text="Click the button to start">
+      <Label id="displayTime" fx:id="displayTime" layoutX="387.0" layoutY="125.0" prefHeight="23.0" prefWidth="237.0" text="Click the button to start">
          <font>
             <Font size="18.0" />
          </font>
@@ -288,22 +288,22 @@
       <ImageView fx:id="c5battle" fitHeight="33.0" fitWidth="31.0" layoutX="732.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="c5bluewin" fitHeight="33.0" fitWidth="31.0" layoutX="771.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="c5redwin" fitHeight="33.0" fitWidth="31.0" layoutX="693.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="328.0" layoutY="152.0" prefHeight="23.0" prefWidth="189.0" text="Status of Red Team: ">
+      <Label layoutX="335.0" layoutY="152.0" prefHeight="23.0" prefWidth="189.0" text="Status of Red Team: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="redstatus_fetchLE" layoutX="511.0" layoutY="154.0" prefHeight="19.0" prefWidth="484.0" textFill="#b5121d" wrapText="true">
+      <Label fx:id="redstatus_fetchLE" layoutX="518.0" layoutY="154.0" prefHeight="19.0" prefWidth="484.0" textFill="#b5121d" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="328.0" layoutY="178.0" prefHeight="23.0" prefWidth="189.0" text="Status of Blue Team: ">
+      <Label layoutX="335.0" layoutY="178.0" prefHeight="23.0" prefWidth="189.0" text="Status of Blue Team: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="bluestatus_fetchLE" layoutX="511.0" layoutY="180.0" prefHeight="19.0" prefWidth="476.0" textFill="#3f79dd" wrapText="true">
+      <Label fx:id="bluestatus_fetchLE" layoutX="518.0" layoutY="180.0" prefHeight="19.0" prefWidth="476.0" textFill="#3f79dd" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>

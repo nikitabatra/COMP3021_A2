@@ -10,7 +10,7 @@ import Warriors.Warrior_single;
 
 import World.WorldProperty;
 import World.World_single;
-import static World.World_single.worldController;
+import static World.World_single.singleWorldController;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;

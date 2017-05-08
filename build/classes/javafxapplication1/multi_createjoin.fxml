@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Label layoutX="25.0" layoutY="26.0" text="Please select if you want to create or join a game:" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="createMulti" layoutX="73.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleCreateMulti" prefHeight="27.0" prefWidth="102.0" text="Create" />
+      <TextField fx:id="hostIP" layoutX="198.0" layoutY="134.0" prefHeight="27.0" prefWidth="159.0" />
+      <Label layoutX="381.0" layoutY="81.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="84.0" prefHeight="19.0" prefWidth="124.0" text="Your IP Address:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="137.0" prefHeight="19.0" prefWidth="124.0" text="Host IP Address:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="joinMulti" layoutX="212.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleJoinMulti" prefHeight="27.0" prefWidth="102.0" text="Join" />
+      <Label fx:id="yourIP" layoutX="198.0" layoutY="84.0" prefHeight="17.0" prefWidth="159.0" text="Label" textFill="#009a45">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="56.0" prefHeight="17.0" prefWidth="299.0" textFill="#d31e1e" />
+    </children>
+</AnchorPane>
