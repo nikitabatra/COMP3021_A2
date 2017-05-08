@@ -303,89 +303,12 @@ public class FXMLDocumentController implements Initializable {
           }
     }
     
-//    @FXML private Button createMulti = new Button();
-//    @FXML private Button joinMulti = new Button();
-    @FXML private TextField hostIP = new TextField();
-    
-    @FXML
-    private void handleCreateMulti(ActionEvent event){        
-        // start server
-        
-        // display input parameters page
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_multi.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Input parameters");
-                Scene scene1 = new Scene(root1, 400, 550);
-                stage.setScene(scene1);
-                stage.show();
-        }
-        
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-    
-    
-    @FXML
-    private void handleJoinMulti(ActionEvent event){
-        String getIP = hostIP.getText();
-        
-        // check if Host IP entered is valid
-        
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_multi_client.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Input parameters");
-                Scene scene1 = new Scene(root1, 1000, 700);
-                stage.setScene(scene1);
-                stage.show();
-        }
-        
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    
-//    private boolean isServer;
-//    private NetworkConnection connection = isServer ? createServer() : createClient();
-//    
-//
-//    
-//    private Server createServer(){
-//        return new Server(8888, data -> {
-//            Platform.runLater(() -> {
-//                
-//            });
-//        });
-//    }
-//    
-//    private Client createClient(){
-//        return new Client("10.89.85.164", 8888, data -> {
-//            Platform.runLater(() -> {
-//                
-//            });
-//        });
-//    }
-//    
-//    public void init() throws Exception {
-//        connection.startConnection();
-//    }
-//    
-//    public void stop() throws Exception {
-//        connection.closeConnection();
-//    }
-    
     @FXML
     private void handleInputParametersOption3(ActionEvent event) { // input page
 
         System.out.println("You clicked the input submit button!");
         // Hide window after click : 
         ((Node)(event.getSource())).getScene().getWindow().hide();
-        
         try {
                 numLE = parseInt(inputLE.getText());
                 numT = parseInt(inputT.getText());
@@ -437,8 +360,6 @@ public class FXMLDocumentController implements Initializable {
                 WarriorType.ATTACK_LIST = new int[]{d_AV,n_AV,i_AV,l_AV,w_AV};
                 WorldProperty.InitLifeElements = numLE;
                 WorldProperty.MaxMinutes = numT;
-                
-                
 
                  
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -459,7 +380,54 @@ public class FXMLDocumentController implements Initializable {
            e.printStackTrace();
           }
     }
-
+    
+//    @FXML private Button createMulti = new Button();
+//    @FXML private Button joinMulti = new Button();
+    @FXML private TextField hostIP = new TextField();
+    
+    public static boolean checkIfServer = false;
+    @FXML
+    private void handleCreateMulti(ActionEvent event){        
+        // determine server
+        checkIfServer = true;
+        // display input parameters page
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_multi.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Input parameters");
+                Scene scene1 = new Scene(root1, 400, 550);
+                stage.setScene(scene1);
+                stage.show();
+        }
+        
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void handleJoinMulti(ActionEvent event){
+        String getIP = hostIP.getText();
+        
+        checkIfServer = false;
+        // check if Host IP entered is valid
+        
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_multi_client.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Input parameters");
+                Scene scene1 = new Scene(root1, 1000, 700);
+                stage.setScene(scene1);
+                stage.show();
+        }
+        
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

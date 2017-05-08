@@ -37,8 +37,6 @@ public abstract class Warrior_multi {
 			System.err.println("Error in Warrior: Undefined Party");
 		}
 		
-		System.out.println(World_single.WorldClock.getTime()+" "
-				+this.WarriorNameCard+" born");
 	}
 	
 	public boolean move(){

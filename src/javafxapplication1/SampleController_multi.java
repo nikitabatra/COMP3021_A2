@@ -32,8 +32,10 @@ import javafx.scene.image.ImageView;
  * @author nikitabatra
  */
 public class SampleController_multi implements Initializable {
-
+    
     World_multi WorldObject = null;
+    public static FXMLDocumentController cont;
+    
     public SampleController_multi getSampleController(){
         return this;
     }
@@ -153,10 +155,13 @@ public class SampleController_multi implements Initializable {
    
     @FXML ImageView chosenWarrior = new ImageView();
     public static int checkClicked = 0;
+    public static String sendToServer;
+    
     @FXML
     public void handleSubmitWarrior(ActionEvent event){
-        alertMessage1.setText("");
-        alertMessage2.setText("");
+//        alertMessage1.setText("");
+//        alertMessage2.setText("");
+
         warriorChosen = parseInt(inputWarriorChosen.getText());
         
         if(warriorChosen == 0){
@@ -174,6 +179,12 @@ public class SampleController_multi implements Initializable {
         if(warriorChosen == 4){
            chosenWarrior.setImage(image_wolf_red);
         }
+
+        if(cont.checkIfServer == false) {
+           sendToServer = warriorChosen + "";
+           
+        }
+
         checkClicked = 1;
     }
 

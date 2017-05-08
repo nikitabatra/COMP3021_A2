@@ -1,6 +1,7 @@
 package Warriors;
 
 import World.*;
+import javafxapplication1.SampleController;
 
 public abstract class Warrior {
 	public int HP;
@@ -13,6 +14,8 @@ public abstract class Warrior {
 	public int MovedDistance;
 	public String WarriorNameCard;
 	public int Location;
+        
+        public static SampleController sc;
 	
 	
 	public Warrior(int Type, int Party,int ProductionID){
@@ -129,6 +132,9 @@ public abstract class Warrior {
 	/**
 	 * Try to change the flag of current city.
 	 */
+        public boolean blueFlagRaised = false;
+        public boolean redFlagRaised = false;
+        
 	protected void tryToChangeFlag() {
 		City myCity = World.CityList.get(this.Location);
 		if (myCity.PartyOfLastRoundWinner == this.Party){
@@ -137,7 +143,10 @@ public abstract class Warrior {
 				//004:40 blue flag raised in city 4
 				System.out.format("%s %s flag raised in city %d\n", 
 						World.WorldClock.getTime(), WorldProperty.PartyNames[this.Party],this.Location);
-			}
+                                
+			if(WorldProperty.PartyNames[this.Party] == "red") sc.redRaised = true;
+                        if(WorldProperty.PartyNames[this.Party] == "blue") sc.blueRaised = true;
+                        }
 			//Keep the flag.
 			myCity.Flag = this.Party;
 		}

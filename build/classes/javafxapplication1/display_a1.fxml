@@ -319,5 +319,30 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <ImageView fx:id="city1Flag" fitHeight="38.0" fitWidth="31.0" layoutX="195.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city2Flag" fitHeight="38.0" fitWidth="31.0" layoutX="327.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city4Flag" fitHeight="38.0" fitWidth="31.0" layoutX="591.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city3Flag" fitHeight="38.0" fitWidth="31.0" layoutX="461.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="city5Flag" fitHeight="38.0" fitWidth="31.0" layoutX="732.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hq2Flag" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

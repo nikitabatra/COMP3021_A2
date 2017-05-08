@@ -394,6 +394,34 @@ public class SampleController_single implements Initializable {
         }
     }
     
+    
+    public static boolean blueRaised = false;
+    public static boolean redRaised = false;
+    
+    
+    @FXML private Image image_red = new Image("flag_red.png");
+    @FXML private Image image_blue = new Image("flag_blue.png");
+    
+    
+//    @FXML
+//    public void raiseFlag(int cityID){
+//        if(blueRaised == true){
+//            if(cityID == 1) city1Flag.setImage(image_blue);
+//            if(cityID == 2) city2Flag.setImage(image_blue);
+//            if(cityID == 3) city3Flag.setImage(image_blue);
+//            if(cityID == 4) city1Flag.setImage(image_blue);
+//            if(cityID == 5) city1Flag.setImage(image_blue);
+//        }
+//        
+//        if(redRaised == true){
+//            if(cityID == 1) city1Flag.setImage(image_red);
+//            if(cityID == 2) city2Flag.setImage(image_red);
+//            if(cityID == 3) city3Flag.setImage(image_red);
+//            if(cityID == 4) city1Flag.setImage(image_red);
+//            if(cityID == 5) city1Flag.setImage(image_red);
+//        }
+//    }
+    
     @FXML
     public void showWinner(Warrior_single w, int Location){
         

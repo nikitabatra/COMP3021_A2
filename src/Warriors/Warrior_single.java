@@ -2,6 +2,8 @@ package Warriors;
 
 import World.*;
 
+import javafxapplication1.SampleController_single;
+
 public abstract class Warrior_single {
 	public int HP;
 	public int AttackValue;
@@ -14,7 +16,8 @@ public abstract class Warrior_single {
 	public String WarriorNameCard;
 	public int Location;
 	
-	
+        public static SampleController_single ssc;
+        
 	public Warrior_single(int Type, int Party,int ProductionID){
 		this.HP = WarriorType.HP_LIST[Type];
 		this.AttackValue = WarriorType.ATTACK_LIST[Type];
@@ -137,7 +140,9 @@ public abstract class Warrior_single {
 				//004:40 blue flag raised in city 4
 				System.out.format("%s %s flag raised in city %d\n", 
 						World_single.WorldClock.getTime(), WorldProperty.PartyNames[this.Party],this.Location);
-			}
+			//if(WorldProperty.PartyNames[this.Party] == "red") ssc.redRaised = true;
+                        //if(WorldProperty.PartyNames[this.Party] == "blue") ssc.blueRaised = true;
+                        }
 			//Keep the flag.
 			myCity.Flag = this.Party;
 		}

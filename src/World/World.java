@@ -136,6 +136,7 @@ public class World {
                          if(c.checkIfBattle == true){
                              worldController.updateBattle(c.CityID);
                              worldController.showWinner(deadWarrior, deadLocation);
+                             worldController.raiseFlag(c.CityID);
                          }        
 		 }
 

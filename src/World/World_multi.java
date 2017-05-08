@@ -1,12 +1,23 @@
 package World;
 
+
 import static Warriors.Warrior_multi.deadLocation;
 import static Warriors.Warrior_multi.deadWarrior;
 import java.util.ArrayList;
 
 import Warriors.WarriorType;
 import Warriors.Warrior_multi;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +30,7 @@ import javafxapplication1.FXMLDocumentController;
 import javafxapplication1.SampleController_multi;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafxapplication1.GreetingServer;
 import javafxapplication1.JavaFXApplication1;
 
 public class World_multi {
@@ -28,14 +40,19 @@ public class World_multi {
 	public static ArrayList<City_multi> CityList;
         public static String timeCount = "";
         public static SampleController_multi multiWorldController;
+        public static FXMLDocumentController cont;
         public static boolean checkOccupied = false;
+        protected ServerSocket serverSocket = null;         
                 
-                
+        protected DataInputStream incomingData;
+        protected DataOutputStream outgoingData;
         public static void main(String[] args) {
             Application.launch(JavaFXApplication1.class, args);
         }
 	
-	public World_multi(SampleController_multi multiWorldController){
+	public World_multi(SampleController_multi multiWorldController) throws IOException {
+                
+                
 		this.multiWorldController = multiWorldController;
 		//initialize clock 
 		WorldClock = new Clock();
@@ -56,10 +73,23 @@ public class World_multi {
 	}
 	
         public static int warriorChosen;
+        public static int clientWarriorListen;
+        
         int keepCount = 0;
-        public void runGame(String currentTime) throws InterruptedException, IOException{
+        public void runGame(String currentTime) throws InterruptedException, IOException{  
 
-                    if( keepCount <= WorldProperty.MaxMinutes/10 ){
+                
+                if(cont.checkIfServer == true) {
+                    Thread t = new GreetingServer(5000, WorldClock.getTime());
+                    t.start();
+                }
+                
+                if(cont.checkIfServer == false) {
+                    Thread t = new GreetingServer(5000, WorldClock.getTime());
+                    t.start();
+                }
+
+            if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
                                 multiWorldController.submitWarrior.setDisable(false);
@@ -138,9 +168,15 @@ public class World_multi {
                         keepCount++;
                     }
                         WorldClock.increase();	
-
-	}
-        
+                        //output.write(time)
+                        
+//                        
+//                        this.outgoingData = new DataOutputStream(server.getOutputStream());
+//                        outgoingData.writeUTF("Time is : "  + WorldClock.getTime() + "\nGoodbye!");
+//                        
+////                        server.close(); 
+//                        serverSocket.close();
+        }
 	public void holdBattlesAndWorkAfterBattles() {
 		for (int index=1; index <= WorldProperty.NumberOfCity; index++){
 			 City_multi c = CityList.get(index);

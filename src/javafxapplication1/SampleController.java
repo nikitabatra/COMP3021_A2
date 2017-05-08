@@ -100,6 +100,7 @@ public class SampleController implements Initializable {
     @FXML private Image image_hq1Flag = new Image("flag_red.png");
     @FXML private Image image_hq2Flag = new Image("flag_blue.png");
     
+    
     @FXML private Image image_dragon_blue = new Image("dragon_blue.png");
     @FXML private Image image_ninja_blue = new Image("ninja_blue.png");
     @FXML private Image image_iceman_blue = new Image("iceman_blue.png");
@@ -395,6 +396,33 @@ public class SampleController implements Initializable {
             if(Location == 5){
                 c5redwin.setImage(image_winBattle);
             }
+        }
+    }
+    
+    public static boolean blueRaised = false;
+    public static boolean redRaised = false;
+    
+    
+    @FXML private Image image_red = new Image("flag_red.png");
+    @FXML private Image image_blue = new Image("flag_blue.png");
+    
+    
+    @FXML
+    public void raiseFlag(int cityID){
+        if(blueRaised == true){
+            if(cityID == 1) city1Flag.setImage(image_blue);
+            if(cityID == 2) city2Flag.setImage(image_blue);
+            if(cityID == 3) city3Flag.setImage(image_blue);
+            if(cityID == 4) city1Flag.setImage(image_blue);
+            if(cityID == 5) city1Flag.setImage(image_blue);
+        }
+        
+        if(redRaised == true){
+            if(cityID == 1) city1Flag.setImage(image_red);
+            if(cityID == 2) city2Flag.setImage(image_red);
+            if(cityID == 3) city3Flag.setImage(image_red);
+            if(cityID == 4) city1Flag.setImage(image_red);
+            if(cityID == 5) city1Flag.setImage(image_red);
         }
     }
     
