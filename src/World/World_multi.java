@@ -31,6 +31,7 @@ import javafxapplication1.SampleController_multi;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafxapplication1.GreetingServer;
+import javafxapplication1.GreetingClient;
 import javafxapplication1.JavaFXApplication1;
 
 public class World_multi {
@@ -42,7 +43,8 @@ public class World_multi {
         public static SampleController_multi multiWorldController;
         public static FXMLDocumentController cont;
         public static boolean checkOccupied = false;
-        protected ServerSocket serverSocket = null;         
+        protected ServerSocket serverSocket = null;
+        
                 
         protected DataInputStream incomingData;
         protected DataOutputStream outgoingData;
@@ -77,17 +79,6 @@ public class World_multi {
         
         int keepCount = 0;
         public void runGame(String currentTime) throws InterruptedException, IOException{  
-
-                
-                if(cont.checkIfServer == true) {
-                    Thread t = new GreetingServer(5000, WorldClock.getTime());
-                    t.start();
-                }
-                
-                if(cont.checkIfServer == false) {
-                    Thread t = new GreetingServer(5000, WorldClock.getTime());
-                    t.start();
-                }
 
             if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.

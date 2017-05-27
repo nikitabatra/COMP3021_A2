@@ -28,9 +28,12 @@ public class GreetingServer extends Thread
             Socket server = serverSocket.accept();
             System.out.println("Just connected to "
                   + server.getRemoteSocketAddress());
+//            DataOutputStream out =
+//                 new DataOutputStream(server.getOutputStream());
+//            out.writeUTF(worldClock);
             DataOutputStream out =
                  new DataOutputStream(server.getOutputStream());
-            out.writeUTF(worldClock);
+            out.writeUTF("hello from the other side");
              DataInputStream in =
                   new DataInputStream(server.getInputStream());
             warriorNum = parseInt(in.readUTF());
@@ -49,7 +52,7 @@ public class GreetingServer extends Thread
    }
    public static void main(String [] args)
    {
-      port=5000;
+      port=6000;
       try
       {
          Thread t = new GreetingServer(port, "Test");

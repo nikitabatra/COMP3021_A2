@@ -1,3 +1,4 @@
+package javafxapplication1;
 import java.io.*;
 import java.net.*;
 import javafxapplication1.SampleController_multi;
@@ -5,10 +6,11 @@ public class GreetingClient
 {
     private static String serverName;
     public static SampleController_multi scm_controller;
+    
    public static void main(String [] args)
    {
       String sName = "localhost";
-      int port = 5000;
+      int port = 6000;
       try
       {
          System.out.println("Connecting to " + sName

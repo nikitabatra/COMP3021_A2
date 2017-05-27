@@ -387,9 +387,12 @@ public class FXMLDocumentController implements Initializable {
     
     public static boolean checkIfServer = false;
     @FXML
-    private void handleCreateMulti(ActionEvent event){        
+    private void handleCreateMulti(ActionEvent event) throws IOException{        
         // determine server
         checkIfServer = true;
+        Thread t = new GreetingServer(6000, "Test");
+        System.out.println("Connected to server");
+        t.start();
         // display input parameters page
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_multi.fxml"));
@@ -407,10 +410,11 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    private void handleJoinMulti(ActionEvent event){
+    private void handleJoinMulti(ActionEvent event)  throws IOException{
         String getIP = hostIP.getText();
         
         checkIfServer = false;
+        GreetingClient.main(new String[] {});
         // check if Host IP entered is valid
         
         try{
