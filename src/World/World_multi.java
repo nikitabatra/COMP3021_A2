@@ -1,23 +1,16 @@
 package World;
 
-
 import static Warriors.Warrior_multi.deadLocation;
 import static Warriors.Warrior_multi.deadWarrior;
 import java.util.ArrayList;
 
 import Warriors.WarriorType;
 import Warriors.Warrior_multi;
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import static java.lang.Integer.parseInt;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
@@ -27,11 +20,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafxapplication1.FXMLDocumentController;
-import javafxapplication1.SampleController_multi;
+import javafxapplication1.SampleController_multi_server;
+import javafxapplication1.SampleController_multi_client;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
-import javafxapplication1.GreetingServer;
-import javafxapplication1.GreetingClient;
 import javafxapplication1.JavaFXApplication1;
 
 public class World_multi {
@@ -40,22 +33,21 @@ public class World_multi {
 	//Cities start from Red Headquarters and end with Blue Headquarters
 	public static ArrayList<City_multi> CityList;
         public static String timeCount = "";
-        public static SampleController_multi multiWorldController;
-        public static FXMLDocumentController cont;
+        //public static SampleController_multi_server multiWorldController;
+        public static SampleController_multi_server serverWorldController;
+        public static SampleController_multi_client clientWorldController;
         public static boolean checkOccupied = false;
-        protected ServerSocket serverSocket = null;
-        
                 
-        protected DataInputStream incomingData;
-        protected DataOutputStream outgoingData;
+                
         public static void main(String[] args) {
             Application.launch(JavaFXApplication1.class, args);
         }
 	
-	public World_multi(SampleController_multi multiWorldController) throws IOException {
-                
-                
-		this.multiWorldController = multiWorldController;
+        public static int clientWarrior;
+	public World_multi(SampleController_multi_server serverWorldController) throws IOException{
+        
+            
+		this.serverWorldController = serverWorldController;
 		//initialize clock 
 		WorldClock = new Clock();
 		
@@ -73,27 +65,67 @@ public class World_multi {
 		City_multi c_last = new Headquarters_multi(WorldProperty.BlueProductionOrder, WorldProperty.BLUE, WorldProperty.InitLifeElements,WorldProperty.NumberOfCity+1);
 		CityList.add(c_last);
 	}
+        
+        
 	
-        public static int warriorChosen;
-        public static int clientWarriorListen;
+        public static int serverWarriorChosen;
+        public static int clientWarriorChosen;
+        
+        
+        public static void connectClient(){
+            new Thread( () -> {
+                try {
+                    ServerSocket serverSocket = new ServerSocket(6000);
+                    Platform.runLater(() ->
+                    System.out.println("This is server the new way"));
+
+                    
+                    Socket socket = serverSocket.accept();
+                    System.out.println("Waiting for client input");
+
+                    DataInputStream inputFromClient = new DataInputStream(socket.getInputStream());
+                    DataOutputStream outputToClient = new DataOutputStream(socket.getOutputStream());
+
+                    while(true){
+                        // get input from client
+                        clientWarrior = inputFromClient.readInt();
+
+                        //send time to client
+                        outputToClient.writeChars("Output to client from server");
+
+                        Platform.runLater(() -> {
+                            System.out.println("Warrior chosen by client: "+clientWarrior);
+                        });
+                    }   
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+
+            }).start();
+        }
         
         int keepCount = 0;
-        public void runGame(String currentTime) throws InterruptedException, IOException{  
+        
+        public void runGame(String currentTime) throws InterruptedException, IOException{
 
-            if( keepCount <= WorldProperty.MaxMinutes/10 ){
+                    if( keepCount <= WorldProperty.MaxMinutes/10 ){
 			// :00 Produce Warriors on exact hours.
 			if (WorldClock.getMinute() == 0){
-                                multiWorldController.submitWarrior.setDisable(false);
-                                multiWorldController.inputWarriorChosen.setDisable(false);
-                                multiWorldController.removeHQLE();
-                                multiWorldController.updatePage(currentTime);
-                                multiWorldController.startGameDisplay();
-                                multiWorldController.setWarriorChosenValue();
-                                warriorChosen = multiWorldController.warriorChosen;
+                            
+                            
+                                serverWorldController.submitWarrior.setDisable(false);
+                                serverWorldController.inputWarriorChosen.setDisable(false);
+                                serverWorldController.removeHQLE();
+                                serverWorldController.updatePage(currentTime);
+                                serverWorldController.startGameDisplay();
+                                serverWorldController.setWarriorChosenValue();
+                                serverWarriorChosen = serverWorldController.warriorChosen;
+                                clientWarriorChosen = clientWarrior;
                                 
-                                if(multiWorldController.checkClicked == 1){
-                                    multiWorldController.submitWarrior.setDisable(true);
-                                    multiWorldController.inputWarriorChosen.setDisable(true);
+                                if(serverWorldController.checkClicked == 1){
+                                    serverWorldController.submitWarrior.setDisable(true);
+                                    serverWorldController.inputWarriorChosen.setDisable(true);
                                 }
                                 
                                 ((Headquarters_multi)CityList.get(0)).tryToProduceWarrior();
@@ -104,12 +136,12 @@ public class World_multi {
                                 boolean blueSuccess = ((Headquarters_multi)CityList.get(0)).blueProductionSuccess;
                                 boolean redSuccess = ((Headquarters_multi)CityList.get(WorldProperty.NumberOfCity+1)).redProductionSuccess;			
                                 
-                                multiWorldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
+                                serverWorldController.updateProduceWarriors(blueWarriorType, redWarriorType, blueSuccess, redSuccess);
 			}
 			// :10 March
 			if (WorldClock.getMinute() == 10){
-                                  multiWorldController.removeWarriorLabel();
-                                  multiWorldController.updatePage(currentTime);
+                                  serverWorldController.removeWarriorLabel();
+                                  serverWorldController.updatePage(currentTime);
                                 
 				marchWarriors();
 				
@@ -128,30 +160,30 @@ public class World_multi {
 			}
 			// :20 Produce Life Elements
 			if (WorldClock.getMinute() == 20){
-                                multiWorldController.updatePage(currentTime);
+                                serverWorldController.updatePage(currentTime);
 				ProduceLifeElements();
-                                multiWorldController.updateProduceLE();
+                                serverWorldController.updateProduceLE();
                                 
 			}
 			
 			// :30 Warriors Fetch Life Elements to their headquarters
 			if (WorldClock.getMinute() == 30){
-                                multiWorldController.removeProduceLEdisplay();
-                                multiWorldController.updatePage(currentTime);
+                                serverWorldController.removeProduceLEdisplay();
+                                serverWorldController.updatePage(currentTime);
                                 warriorsFetchLifeElementsFromCity();
 			}
 				
 			// :40 Organize Battels (Core function.)
 			if (WorldClock.getMinute() == 40){
-                                multiWorldController.removeFetchLEUpdate();
-                                multiWorldController.updatePage(currentTime);
+                                serverWorldController.removeFetchLEUpdate();
+                                serverWorldController.updatePage(currentTime);
 				holdBattlesAndWorkAfterBattles();
 			}
 			
 			// :50 Headquarters report Life Elements
 			if (WorldClock.getMinute() == 50){
-                                multiWorldController.removeBattleSigns();
-                                multiWorldController.updatePage(currentTime);
+                                serverWorldController.removeBattleSigns();
+                                serverWorldController.updatePage(currentTime);
 				headquartersReportLifeElements();
                                 
 			}
@@ -159,22 +191,16 @@ public class World_multi {
                         keepCount++;
                     }
                         WorldClock.increase();	
-                        //output.write(time)
-                        
-//                        
-//                        this.outgoingData = new DataOutputStream(server.getOutputStream());
-//                        outgoingData.writeUTF("Time is : "  + WorldClock.getTime() + "\nGoodbye!");
-//                        
-////                        server.close(); 
-//                        serverSocket.close();
-        }
+
+	}
+        
 	public void holdBattlesAndWorkAfterBattles() {
 		for (int index=1; index <= WorldProperty.NumberOfCity; index++){
 			 City_multi c = CityList.get(index);
                          c.organizeBattle();
                          if(c.checkIfBattle == true){
-                             multiWorldController.updateBattle(c.CityID);
-                             multiWorldController.showWinner(deadWarrior, deadLocation);
+                             serverWorldController.updateBattle(c.CityID);
+                             serverWorldController.showWinner(deadWarrior, deadLocation);
                          }        
 		 }
 
@@ -205,9 +231,9 @@ public class World_multi {
                 //blueNumLE = BlueHeadquarters.LifeElement;
 		System.out.format("%s %d elements in red headquarter\n", WorldClock.getTime(),RedHeadquarters.LifeElement);
 		System.out.format("%s %d elements in blue headquarter\n", WorldClock.getTime(),BlueHeadquarters.LifeElement);
-                multiWorldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
-                multiWorldController.inputWarriorChosen.setDisable(false);
-                multiWorldController.submitWarrior.setDisable(false);
+                serverWorldController.updateHQLE(RedHeadquarters.LifeElement, BlueHeadquarters.LifeElement);
+                serverWorldController.inputWarriorChosen.setDisable(false);
+                serverWorldController.submitWarrior.setDisable(false);
         }
         
         public static boolean blueWarriorFetchesLE = false;
@@ -226,7 +252,7 @@ public class World_multi {
 			//Red Fetch
 			else if (c.BlueWarriorStation.isEmpty()){
 				Warrior_multi w = c.RedWarriorStation.get(0);
-                                multiWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
+                                serverWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
 				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(), w.WarriorNameCard,c.LifeElement);
 				RedHeadquarters.addLifeElement(c.popLifeElements());
@@ -234,7 +260,7 @@ public class World_multi {
 			else if (c.RedWarriorStation.isEmpty()){
 
 				Warrior_multi w = c.BlueWarriorStation.get(0);
-                                multiWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
+                                serverWorldController.updateWarriorFetchesLE(c.CityID, w.WarriorNameCard, w.Party, c.LifeElement);
 				//000:30 red iceman 1 earned 10 elements for his headquarter
 				System.out.format("%s %s earned %d elements for his headquarter\n", WorldClock.getTime(),w.WarriorNameCard,c.LifeElement);
 				BlueHeadquarters.addLifeElement(c.popLifeElements());
@@ -263,7 +289,7 @@ public class World_multi {
 			while (!city.RedWarriorStation.isEmpty()){
                                 int redMoveTo = city.RedWarriorStation.get(0).Location + 1;                              
 				city.RedWarriorStation.get(0).move();
-                                multiWorldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
+                                serverWorldController.updateWarriorMarch(WorldProperty.RED, redMoveTo);
 			}
 		}
 		//March Blue Warriors.
@@ -272,7 +298,7 @@ public class World_multi {
 			while (!city.BlueWarriorStation.isEmpty()){
                                 int blueMoveTo = city.BlueWarriorStation.get(0).Location - 1;
 				city.BlueWarriorStation.get(0).move();
-                                multiWorldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
+                                serverWorldController.updateWarriorMarch(WorldProperty.BLUE, blueMoveTo);
 			}
 		}
 
@@ -310,5 +336,8 @@ public class World_multi {
 					WorldClock.getTime(), w.WarriorNameCard, c.CityID, w.HP, w.AttackValue);
 		}
 	}
+        
+        
+        
 	
 }

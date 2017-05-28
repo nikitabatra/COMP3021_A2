@@ -33,12 +33,16 @@ public class GreetingServer extends Thread
 //            out.writeUTF(worldClock);
             DataOutputStream out =
                  new DataOutputStream(server.getOutputStream());
-            out.writeUTF("hello from the other side");
+            out.writeUTF("hello from the Server Side!");
              DataInputStream in =
                   new DataInputStream(server.getInputStream());
-            warriorNum = parseInt(in.readUTF());
-             System.out.println(warriorNum);
+//            warriorNum = parseInt(in.readUTF());
+//             System.out.println(warriorNum);
+            System.out.println("Incoming from the Client: "+in.readUTF());
+            System.out.println("Closing server now...");
             server.close();
+            System.out.println("Is server closed " + server.isClosed());
+            
          }catch(SocketTimeoutException s)
          {
             System.out.println("Socket timed out!");
@@ -50,6 +54,8 @@ public class GreetingServer extends Thread
          }
       }
    }
+
+   
    public static void main(String [] args)
    {
       port=6000;

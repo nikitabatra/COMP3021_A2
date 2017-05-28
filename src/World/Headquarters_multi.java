@@ -122,7 +122,7 @@ public class Headquarters_multi extends City_multi{
 		int warriorType = ProductionOrder[WarriorIndex];
 
                 if(this.getParty() == WorldProperty.RED){
-                    whichRedWarrior = World_multi.warriorChosen;
+                    whichRedWarrior = World_multi.serverWarriorChosen;
                 }
                 if(this.getParty() == WorldProperty.BLUE){
                     whichBlueWarrior = warriorType;

@@ -8,6 +8,8 @@ package javafxapplication1;
 import Warriors.WarriorType;
 import World.World;
 import World.WorldProperty;
+import World.World_multi;
+import static World.World_multi.clientWorldController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
     
     static public SampleController worldController;
     static public SampleController_single singleWorldController;
-    static public SampleController_multi multiWorldController;
+    static public SampleController_multi_server serverWorldController;
     
     @FXML Label displayTime;
 
@@ -364,12 +366,12 @@ public class FXMLDocumentController implements Initializable {
                  
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("display_multi.fxml"));
-                multiWorldController = fxmlLoader.getController();
+                serverWorldController = fxmlLoader.getController();
                 
                 Parent root1 = (Parent) fxmlLoader.load();
                 
                 Stage stage = new Stage();
-                stage.setTitle("World of Warcraft: Single-Player");
+                stage.setTitle("World of Warcraft: Multi-Player");
                 Scene scene1 = new Scene(root1, 1000, 700);
                 stage.setScene(scene1);                
                 stage.show();
@@ -383,16 +385,19 @@ public class FXMLDocumentController implements Initializable {
     
 //    @FXML private Button createMulti = new Button();
 //    @FXML private Button joinMulti = new Button();
-    @FXML private TextField hostIP = new TextField();
+
     
     public static boolean checkIfServer = false;
     @FXML
     private void handleCreateMulti(ActionEvent event) throws IOException{        
         // determine server
         checkIfServer = true;
-        Thread t = new GreetingServer(6000, "Test");
-        System.out.println("Connected to server");
-        t.start();
+//        Thread t = new GreetingServer(6000, "Test");
+//        System.out.println("Connected to server");
+//        t.start();
+        World_multi.connectClient();
+        
+        
         // display input parameters page
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("input_parameters_multi.fxml"));
@@ -409,13 +414,17 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
+    @FXML private TextField hostIP = new TextField();
+    public static String getIP = "";
+    
     @FXML
     private void handleJoinMulti(ActionEvent event)  throws IOException{
-        String getIP = hostIP.getText();
+         getIP = hostIP.getText();
         
         checkIfServer = false;
-        GreetingClient.main(new String[] {});
+//        GreetingClient.main(new String[] {});
         // check if Host IP entered is valid
+        //clientWorldController.startClient();
         
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("display_multi_client.fxml"));
